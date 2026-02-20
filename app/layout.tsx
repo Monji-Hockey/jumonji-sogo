@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
-import Header from "@/components/Header";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import ScrollRestoration from "@/components/ScrollRestoration";
 
 export const metadata: Metadata = {
@@ -22,9 +24,11 @@ export default function RootLayout({
     <html lang="ja">
       <body className="flex min-h-screen flex-col antialiased">
         <ScrollRestoration />
+        {process.env.NEXT_PUBLIC_GA_ID ? <GoogleAnalytics /> : null}
         <Header />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
