@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* design_memo.md: 柔らかい黄色（幸福・金運）とピンク（優しさ・スズラン）を基調 */
+:root {
+  --color-yellow: #f5e6a6;
+  --color-yellow-dark: #e8d46a;
+  --color-pink: #f4c2c2;
+  --color-pink-soft: #fce4ec;
+  --color-pink-accent: #c2185b;
+  --color-emergency: #d32f2f;
+  --color-emergency-hover: #b71c1c;
+  --color-text: #333;
+  --color-text-muted: #666;
+  --background: #fefdfb;
+  --foreground: var(--color-text);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-yellow: var(--color-yellow);
+  --color-pink-soft: var(--color-pink-soft);
+  --color-pink-accent: var(--color-pink-accent);
+  --color-emergency: var(--color-emergency);
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* スマホでタップしやすいボタン用 */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a[href^="tel:"] {
+    touch-action: manipulation;
+  }
+}

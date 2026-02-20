@@ -1,0 +1,248 @@
+/* ========================================
+   十文字総合開発 - 共通スタイル
+   カラーパレット: 柔らかい黄色・ピンク（鈴蘭・幸福）
+   ======================================== */
+:root {
+  --color-yellow: #f5e6a6;
+  --color-yellow-dark: #e8d46a;
+  --color-pink: #f4c2c2;
+  --color-pink-soft: #fce4ec;
+  --color-accent: #c2185b;
+  --color-emergency: #d32f2f;
+  --color-emergency-hover: #b71c1c;
+  --color-text: #333;
+  --color-text-muted: #666;
+  --header-height: 72px;
+  --header-height-sp: 64px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* ========== ヘッダー ========== */
+.site-header {
+  background: linear-gradient(135deg, var(--color-yellow) 0%, var(--color-pink-soft) 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.header-logo img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+.badge-30th {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--color-accent) 0%, #ad1457 100%);
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* 緊急ボタン：事故・故障はこちら */
+.btn-emergency {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-emergency);
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.4);
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-emergency:hover {
+  background: var(--color-emergency-hover);
+  transform: scale(1.02);
+}
+
+.btn-emergency:active {
+  transform: scale(0.98);
+}
+
+/* スマホ：ヘッダー折り返し */
+@media (max-width: 767px) {
+  .site-header {
+    padding: 8px 0;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: var(--header-height-sp);
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .header-left {
+    flex: 1 1 auto;
+    order: 1;
+  }
+
+  .header-logo img {
+    height: 36px;
+  }
+
+  .badge-30th {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .header-right {
+    width: 100%;
+    order: 2;
+    justify-content: flex-end;
+  }
+
+  .btn-emergency {
+    width: 100%;
+    max-width: 320px;
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+}
+
+/* ========== フッター ========== */
+.site-footer {
+  background: linear-gradient(180deg, #faf5e8 0%, #f5ebe0 100%);
+  color: var(--color-text);
+  margin-top: auto;
+  padding: 40px 16px 24px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-policies {
+  margin-bottom: 32px;
+}
+
+.footer-policies-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.footer-policies-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-policies-list li {
+  margin-bottom: 8px;
+}
+
+.footer-policies-list a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-policies-list a:hover {
+  text-decoration: underline;
+}
+
+.footer-company {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  padding-top: 20px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.footer-company-name {
+  font-weight: bold;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 16px;
+}
+
+@media (max-width: 767px) {
+  .site-footer {
+    padding: 32px 12px 20px;
+  }
+
+  .footer-policies-list a {
+    font-size: 13px;
+  }
+}
+
+/* ========== メインコンテンツ用 共通 ========== */
+.main-content {
+  min-height: calc(100vh - 200px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+@media (max-width: 767px) {
+  .main-content {
+    padding: 16px 12px 32px;
+  }
+}
