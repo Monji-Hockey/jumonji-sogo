@@ -29,7 +29,7 @@ const STRENGTHS = [
 
 export default function CompanySection() {
   return (
-    <section id="company" className="scroll-mt-20 bg-[#fefdfb] px-3 py-12 sm:px-4 sm:py-16">
+    <section id="company" className="scroll-mt-20 bg-[#fefdfb] px-3 py-12 sm:px-4 sm:py-16 lg:px-12 xl:px-20">
       <div className="mx-auto max-w-5xl">
         <h2 className="mb-2 text-center text-xl font-bold text-[#333] sm:text-2xl">
           会社概要

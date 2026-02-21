@@ -7,7 +7,7 @@ export default function Home() {
     <>
       {/* メインビジュアル：30周年・経営理念（HP 会社案内.pdf 準拠） */}
       <section
-        className="relative overflow-hidden px-3 py-12 sm:px-4 sm:py-24"
+        className="relative overflow-hidden px-3 py-12 sm:px-4 sm:py-24 lg:px-12 xl:px-20"
         style={{
           background: "linear-gradient(160deg, #f5e6a6 0%, #fce4ec 50%, #f5e6a6 100%)",
         }}
@@ -38,7 +38,7 @@ export default function Home() {
       </section>
 
       {/* 経営理念・経営ビジョン（同じデザインで並列） */}
-      <section className="border-y border-[#e8d46a]/30 bg-[#fefdfb] px-3 py-10 sm:px-4 sm:py-12">
+      <section className="border-y border-[#e8d46a]/30 bg-[#fefdfb] px-3 py-10 sm:px-4 sm:py-12 lg:px-12 xl:px-20">
         <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2 sm:gap-8">
           <div className="rounded-xl border border-[#e8d46a]/50 bg-[#fefdf8] px-5 py-5 sm:px-6 sm:py-6">
             <p className="mb-2 text-xs font-bold tracking-wide text-[#c2185b]">経営理念</p>
@@ -60,7 +60,7 @@ export default function Home() {
       </section>
 
       {/* 事故・故障：電話であることを明確に、ページ中部に配置 */}
-      <section className="border-y border-[#e8d46a]/30 bg-[#fefdfb] px-3 py-8 sm:px-4 sm:py-10">
+      <section className="border-y border-[#e8d46a]/30 bg-[#fefdfb] px-3 py-8 sm:px-4 sm:py-10 lg:px-12 xl:px-20">
         <div className="mx-auto flex max-w-2xl flex-col items-center gap-2 text-center">
           <p className="text-sm font-medium text-[#666]">事故・故障のご連絡はお電話で</p>
           <a

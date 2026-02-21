@@ -10,7 +10,7 @@ export default function Header() {
       }}
       role="banner"
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-3 py-2 sm:gap-3 sm:px-6 sm:py-0 sm:[min-height:4.5rem]">
+      <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-3 py-2 sm:gap-3 sm:px-6 sm:py-0 sm:[min-height:4.5rem] lg:px-12 xl:px-20">
         {/* ロゴ＋30周年（中央配置・やや大きめ） */}
         <div className="flex min-w-0 flex-shrink-0 items-center gap-2 sm:gap-4">
           <Link

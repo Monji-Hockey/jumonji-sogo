@@ -129,7 +129,7 @@ export default function CalendarSection() {
   const todayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
 
   return (
-    <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+    <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-12 xl:px-20">
       <h2 className="mb-2 text-center text-xl font-bold text-[#333] sm:text-2xl">
         営業日カレンダー
       </h2>

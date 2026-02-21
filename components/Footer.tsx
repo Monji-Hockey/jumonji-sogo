@@ -9,7 +9,7 @@ export default function Footer() {
       }}
       role="contentinfo"
     >
-      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-12 xl:px-20">
         <nav className="mb-6" aria-label="サイトメニュー">
           <ul className="space-y-2">
             <li>
