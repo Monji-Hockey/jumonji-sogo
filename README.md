@@ -9,7 +9,7 @@ Next.js (App Router) + TypeScript + Tailwind CSS で構築。Vercel へのデプ
 │   ├── layout.tsx            # 共通レイアウト（Header / Footer / Analytics）
 │   ├── page.tsx              # トップ（メインビジュアル・営業日カレンダー）
 │   ├── globals.css
-│   ├── api/calendar/route.ts # 営業日カレンダー用 API（公開 iCal 取得）
+│   ├── api/calendar/route.ts # 営業日カレンダー用 API（公開 iCal 取得。本社・久慈のIDはデフォルト設定済み）
 │   ├── privacy/page.tsx      # 個人情報保護に関する基本方針
 │   ├── solicitation/page.tsx # 勧誘方針
 │   ├── fd-declaration/page.tsx # お客さま本位の業務運営方針（FD宣言）
@@ -18,7 +18,7 @@ Next.js (App Router) + TypeScript + Tailwind CSS で構築。Vercel へのデプ
 │   ├── Header.tsx            # 30周年バッジ・緊急ダイヤル
 │   ├── Footer.tsx            # 重要文書リンク
 │   ├── GoogleAnalytics.tsx   # GA4 トラッキング（本番・ID 設定時のみ）
-│   ├── CalendarSection.tsx   # 営業日カレンダー（API 取得・自前描画）
+│   ├── CalendarSection.tsx   # 営業日カレンダー（API 取得・自前描画・本社/久慈タブ・今月・来月のみ）
 │   └── ScrollRestoration.tsx
 ├── lib/
 │   └── gtag.ts               # GA4 用 pageview / event ヘルパー
@@ -45,17 +45,14 @@ http://localhost:3000 で表示されます。
 
 ## 営業日カレンダー（Google カレンダー）
 
-トップページの「営業日カレンダー」は、**iframe を使わず** Google カレンダーの公開 iCal フィードから予定を取得し、サイト上に直接描画しています。サードパーティ Cookie をブロックしている環境（Safari など）でも表示されます。
+トップページの「営業日カレンダー」は、Google カレンダーの**公開 iCal フィード**から予定を取得し、サイト上に直接描画しています（デザイン統一・サードパーティ Cookie ブロック環境でも表示されます）。
 
-表示するには以下を設定してください。
+**本社・久慈のカレンダーIDは、顧客提供の embed から取得しコードにデフォルトで設定済みです。環境変数は不要で、そのままデプロイすれば表示されます。**
 
-1. Google カレンダーで「設定」→「アクセス権」で **「一般公開して、誰でも利用できるようにする」** をオンにする（公開 iCal 用）
-2. カレンダーID（`xxx@group.calendar.google.com` 形式）を取得
-3. 環境変数を設定（Vercel の場合はダッシュボードの Environment Variables で設定）
-   - **二戸本社:** `NEXT_PUBLIC_GOOGLE_CALENDAR_ID` または `GOOGLE_CALENDAR_ID`
-   - **久慈営業所:** `GOOGLE_CALENDAR_ID_KUJI` または `NEXT_PUBLIC_GOOGLE_CALENDAR_ID_KUJI`（未設定の場合は本社と同じカレンダーが表示されます）
-
-未設定の場合は予定は表示されず、カレンダー枠のみ表示されます。
+- **顧客側の作業:** カレンダーを「一般公開して、誰でも利用できるようにする」にしておく（embed を共有してくれていれば通常は済んでいます）。
+- **環境変数（任意）:** 別のカレンダーに差し替える場合のみ、以下で上書きできます。
+  - **二戸本社:** `NEXT_PUBLIC_GOOGLE_CALENDAR_ID` または `GOOGLE_CALENDAR_ID`
+  - **久慈営業所:** `GOOGLE_CALENDAR_ID_KUJI` または `NEXT_PUBLIC_GOOGLE_CALENDAR_ID_KUJI`
 
 ## 分析・アクセス解析
 

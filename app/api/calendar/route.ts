@@ -1,11 +1,25 @@
 import ical from "node-ical";
 import { NextRequest, NextResponse } from "next/server";
 
-function getCalendarId(office: "honbu" | "kuji"): string | undefined {
+/** 顧客提供の embed から取得したカレンダーID。環境変数未設定時はこちらを使用（設定の手間なし） */
+const DEFAULT_CALENDAR_IDS = {
+  honbu: "2d004a3110eb8dcffc4491cc848589cb659140103427333d1108370b2fcd1e1d@group.calendar.google.com",
+  kuji: "749c859462ebff7640a9831caedba60051cbdde1067cff5d6b9fdadaf66abb83@group.calendar.google.com",
+} as const;
+
+function getCalendarId(office: "honbu" | "kuji"): string {
   if (office === "kuji") {
-    return process.env.GOOGLE_CALENDAR_ID_KUJI || process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_ID_KUJI;
+    return (
+      process.env.GOOGLE_CALENDAR_ID_KUJI ||
+      process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_ID_KUJI ||
+      DEFAULT_CALENDAR_IDS.kuji
+    );
   }
-  return process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_ID || process.env.GOOGLE_CALENDAR_ID;
+  return (
+    process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_ID ||
+    process.env.GOOGLE_CALENDAR_ID ||
+    DEFAULT_CALENDAR_IDS.honbu
+  );
 }
 
 export type CalendarEvent = {
@@ -58,16 +72,7 @@ export async function GET(request: NextRequest) {
   }
 
   const calendarId = getCalendarId(office);
-  const publicIcalUrl = calendarId
-    ? `https://calendar.google.com/calendar/ical/${encodeURIComponent(calendarId)}/public/basic.ics`
-    : null;
-
-  if (!publicIcalUrl || !calendarId) {
-    return NextResponse.json(
-      { events: [] as CalendarEvent[], message: "Calendar ID not configured" },
-      { headers: { "Cache-Control": "public, s-maxage=300, stale-while-revalidate=60" } }
-    );
-  }
+  const publicIcalUrl = `https://calendar.google.com/calendar/ical/${encodeURIComponent(calendarId)}/public/basic.ics`;
 
   try {
     const { from: rangeFrom, to: rangeTo } = getMonthRange(year, month);
