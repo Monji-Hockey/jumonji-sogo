@@ -1,11 +1,12 @@
 import ical from "node-ical";
 import { NextRequest, NextResponse } from "next/server";
 
-const calendarId =
-  process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_ID || process.env.GOOGLE_CALENDAR_ID;
-const PUBLIC_ICAL_URL = calendarId
-  ? `https://calendar.google.com/calendar/ical/${encodeURIComponent(calendarId)}/public/basic.ics`
-  : null;
+function getCalendarId(office: "honbu" | "kuji"): string | undefined {
+  if (office === "kuji") {
+    return process.env.GOOGLE_CALENDAR_ID_KUJI || process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_ID_KUJI;
+  }
+  return process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_ID || process.env.GOOGLE_CALENDAR_ID;
+}
 
 export type CalendarEvent = {
   date: string; // YYYY-MM-DD
@@ -41,6 +42,8 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const year = parseInt(searchParams.get("year") ?? "", 10);
   const month = parseInt(searchParams.get("month") ?? "", 10);
+  const officeParam = searchParams.get("office");
+  const office = officeParam === "kuji" ? "kuji" : "honbu";
 
   if (
     !Number.isInteger(year) ||
@@ -54,7 +57,12 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  if (!PUBLIC_ICAL_URL || !calendarId) {
+  const calendarId = getCalendarId(office);
+  const publicIcalUrl = calendarId
+    ? `https://calendar.google.com/calendar/ical/${encodeURIComponent(calendarId)}/public/basic.ics`
+    : null;
+
+  if (!publicIcalUrl || !calendarId) {
     return NextResponse.json(
       { events: [] as CalendarEvent[], message: "Calendar ID not configured" },
       { headers: { "Cache-Control": "public, s-maxage=300, stale-while-revalidate=60" } }
@@ -63,7 +71,7 @@ export async function GET(request: NextRequest) {
 
   try {
     const { from: rangeFrom, to: rangeTo } = getMonthRange(year, month);
-    const res = await fetch(PUBLIC_ICAL_URL, {
+    const res = await fetch(publicIcalUrl, {
       headers: { "User-Agent": "JujimonSogoCalendar/1.0" },
       signal: AbortSignal.timeout(10000),
     });

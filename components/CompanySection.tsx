@@ -34,9 +34,29 @@ export default function CompanySection() {
         <h2 className="mb-2 text-center text-xl font-bold text-[#333] sm:text-2xl">
           会社概要
         </h2>
-        <p className="mb-10 text-center text-sm leading-relaxed text-[#666] sm:mb-12">
+        <p className="mb-2 text-center text-sm leading-relaxed text-[#666]">
+          損害保険と生命保険を扱う保険代理店です。
+        </p>
+        <p className="mb-6 text-center text-sm leading-relaxed text-[#666] sm:mb-4">
           岩手県二戸市に本社を構え、久慈市に営業所を置いております。地域の皆様に安心と信頼をお届けできるよう、スタッフ一同努めてまいります。
         </p>
+
+        {/* 取扱保険会社 */}
+        <div className="mb-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm sm:mb-10">
+          <span className="w-full text-center font-bold text-[#333] sm:w-auto sm:font-medium">取扱保険会社：</span>
+          <a href="https://www.sompo-japan.co.jp/" target="_blank" rel="noopener noreferrer" className="text-[#c2185b] underline hover:no-underline">
+            損保ジャパン
+          </a>
+          <a href="https://www.kyoeikasai.co.jp/" target="_blank" rel="noopener noreferrer" className="text-[#c2185b] underline hover:no-underline">
+            共栄火災
+          </a>
+          <a href="https://www.himawari-life.co.jp/" target="_blank" rel="noopener noreferrer" className="text-[#c2185b] underline hover:no-underline">
+            SOMPOひまわり生命
+          </a>
+          <a href="https://www.aflac.co.jp/" target="_blank" rel="noopener noreferrer" className="text-[#c2185b] underline hover:no-underline">
+            アフラック
+          </a>
+        </div>
 
         {/* 会社画像（デスクトップでは幅を抑えめに） */}
         <div className="mx-auto mb-10 max-w-2xl overflow-hidden rounded-xl shadow-md sm:mb-12 md:max-w-xl">

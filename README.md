@@ -51,7 +51,9 @@ http://localhost:3000 で表示されます。
 
 1. Google カレンダーで「設定」→「アクセス権」で **「一般公開して、誰でも利用できるようにする」** をオンにする（公開 iCal 用）
 2. カレンダーID（`xxx@group.calendar.google.com` 形式）を取得
-3. 環境変数 `NEXT_PUBLIC_GOOGLE_CALENDAR_ID` または `GOOGLE_CALENDAR_ID` にそのIDを設定（Vercel の場合はダッシュボードの Environment Variables で設定）
+3. 環境変数を設定（Vercel の場合はダッシュボードの Environment Variables で設定）
+   - **二戸本社:** `NEXT_PUBLIC_GOOGLE_CALENDAR_ID` または `GOOGLE_CALENDAR_ID`
+   - **久慈営業所:** `GOOGLE_CALENDAR_ID_KUJI` または `NEXT_PUBLIC_GOOGLE_CALENDAR_ID_KUJI`（未設定の場合は本社と同じカレンダーが表示されます）
 
 未設定の場合は予定は表示されず、カレンダー枠のみ表示されます。
 
@@ -64,6 +66,6 @@ http://localhost:3000 で表示されます。
 
 環境変数の例は `.env.local.example` を参照し、必要な値を `.env.local` にコピーして設定してください。
 
-## コンプライアンスページの本文について
+## コンプライアンスページの本文について 
 
 `/privacy`・`/solicitation`・`/fd-declaration`・`/disclosure` の4ページは、現在は典型的な構成の仮テキストです。**添付の正式ドキュメント（プライバシーポリシー、勧誘方針、FD宣言、権限明示・推奨方針）のテキストに差し替えてください。** 各ページの `app/**/page.tsx` を編集し、見出し・本文を公式文書の内容に合わせて置き換えてください。

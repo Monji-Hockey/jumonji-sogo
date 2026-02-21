@@ -62,25 +62,48 @@ const WEEKDAYS = ["日", "月", "火", "水", "木", "金", "土"];
 
 export default function CalendarSection() {
   const now = new Date();
-  const thisYear = now.getFullYear();
-  const thisMonth = now.getMonth() + 1;
-  const nextYear = thisMonth === 12 ? thisYear + 1 : thisYear;
-  const nextMonthNum = thisMonth === 12 ? 1 : thisMonth + 1;
+  const initialYear = now.getFullYear();
+  const initialMonth = now.getMonth() + 1;
 
-  const [showNextMonth, setShowNextMonth] = useState(false);
-  const year = showNextMonth ? nextYear : thisYear;
-  const month = showNextMonth ? nextMonthNum : thisMonth;
+  const [office, setOffice] = useState<"honbu" | "kuji">("honbu");
+  const [year, setYear] = useState(initialYear);
+  const [month, setMonth] = useState(initialMonth);
 
   const [events, setEvents] = useState<CalendarEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchEvents = useCallback(async (y: number, m: number) => {
+  const nextYear = initialMonth === 12 ? initialYear + 1 : initialYear;
+  const nextMonthNum = initialMonth === 12 ? 1 : initialMonth + 1;
+  const isThisMonth = year === initialYear && month === initialMonth;
+  const isNextMonth = year === nextYear && month === nextMonthNum;
+
+  const goPrevMonth = () => {
+    if (isThisMonth) return;
+    if (month === 1) {
+      setMonth(12);
+      setYear((y) => y - 1);
+    } else {
+      setMonth((m) => m - 1);
+    }
+  };
+
+  const goNextMonth = () => {
+    if (isNextMonth) return;
+    if (month === 12) {
+      setMonth(1);
+      setYear((y) => y + 1);
+    } else {
+      setMonth((m) => m + 1);
+    }
+  };
+
+  const fetchEvents = useCallback(async (y: number, m: number, off: "honbu" | "kuji") => {
     setLoading(true);
     setError(null);
     try {
       const res = await fetch(
-        `/api/calendar?year=${y}&month=${m}`
+        `/api/calendar?year=${y}&month=${m}&office=${off}`
       );
       const data = await res.json();
       if (!res.ok) {
@@ -98,8 +121,8 @@ export default function CalendarSection() {
   }, []);
 
   useEffect(() => {
-    fetchEvents(year, month);
-  }, [year, month, fetchEvents]);
+    fetchEvents(year, month, office);
+  }, [year, month, office, fetchEvents]);
 
   const days = getDaysInMonth(year, month);
   const byDate = eventsByDate(events);
@@ -114,33 +137,58 @@ export default function CalendarSection() {
         定休日：日曜・祝日（隔週水・土は不定休あり）
       </p>
 
+      {/* 本社 / 久慈 タブ */}
       <div className="mb-4 flex flex-wrap justify-center gap-2">
         <button
           type="button"
-          onClick={() => setShowNextMonth(false)}
-          className={`min-h-[44px] min-w-[44px] rounded-lg px-4 py-2.5 text-sm font-bold transition sm:px-5 ${
-            !showNextMonth
+          onClick={() => setOffice("honbu")}
+          className={`min-h-[44px] rounded-lg px-5 py-2.5 text-sm font-bold transition sm:px-6 ${
+            office === "honbu"
               ? "bg-[#c2185b] text-white shadow"
               : "bg-gray-200 text-gray-600 hover:bg-gray-300"
           }`}
         >
-          {getMonthLabel(thisYear, thisMonth)}
+          二戸本社
         </button>
         <button
           type="button"
-          onClick={() => setShowNextMonth(true)}
-          className={`min-h-[44px] min-w-[44px] rounded-lg px-4 py-2.5 text-sm font-bold transition sm:px-5 ${
-            showNextMonth
+          onClick={() => setOffice("kuji")}
+          className={`min-h-[44px] rounded-lg px-5 py-2.5 text-sm font-bold transition sm:px-6 ${
+            office === "kuji"
               ? "bg-[#c2185b] text-white shadow"
               : "bg-gray-200 text-gray-600 hover:bg-gray-300"
           }`}
         >
-          {getMonthLabel(nextYear, nextMonthNum)}
+          久慈営業所
         </button>
       </div>
 
       <div className="overflow-hidden rounded-xl border border-[#e8d46a]/40 bg-white p-3 shadow-sm sm:p-4">
         <div className="min-h-[280px] w-full overflow-hidden rounded-lg bg-[#faf5e8] sm:min-h-[360px]">
+          {/* 前月・表示月・次月（今月・来月のみ表示） */}
+          <div className="flex items-center justify-between border-b border-[#e8d46a]/50 bg-[#f5e6a6]/40 px-2 py-2 sm:px-3">
+            <button
+              type="button"
+              onClick={goPrevMonth}
+              disabled={isThisMonth}
+              className="rounded px-2 py-1 text-sm font-medium text-[#333] hover:bg-[#e8d46a]/50 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent sm:px-3"
+              aria-label="前の月"
+            >
+              ‹ 前月
+            </button>
+            <span className="text-sm font-bold text-[#333] sm:text-base">
+              {getMonthLabel(year, month)}
+            </span>
+            <button
+              type="button"
+              onClick={goNextMonth}
+              disabled={isNextMonth}
+              className="rounded px-2 py-1 text-sm font-medium text-[#333] hover:bg-[#e8d46a]/50 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-transparent sm:px-3"
+              aria-label="次の月"
+            >
+              次月 ›
+            </button>
+          </div>
           {/* 曜日ヘッダー */}
           <div className="grid grid-cols-7 border-b border-[#e8d46a]/50 bg-[#f5e6a6]/60 text-center text-xs font-bold text-[#333] sm:text-sm">
             {WEEKDAYS.map((w, i) => (
