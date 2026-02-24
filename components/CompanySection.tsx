@@ -73,9 +73,18 @@ export default function CompanySection() {
         {/* 基本情報・代表メッセージ */}
         <div className="mb-12 grid gap-8 sm:grid-cols-2 sm:gap-10">
           <div className="rounded-xl border border-[#e8d46a]/40 bg-white p-6 shadow-sm">
-            <h3 className="mb-4 border-b border-[#c2185b]/30 pb-2 text-base font-bold text-[#c2185b]">
-              会社情報
-            </h3>
+            <div className="mb-4 flex items-center justify-between border-b border-[#c2185b]/30 pb-2">
+              <h3 className="text-base font-bold text-[#c2185b]">
+                会社情報
+              </h3>
+              <Image
+                src="/images/十文字総合開発_ロゴだけ.svg"
+                alt="株式会社 十文字総合開発 ロゴ"
+                width={160}
+                height={48}
+                className="h-8 w-auto sm:h-10"
+              />
+            </div>
             <dl className="space-y-3 text-sm text-[#333]">
               <div>
                 <dt className="font-medium text-[#666]">社名</dt>
@@ -190,7 +199,7 @@ export default function CompanySection() {
                 <h4 className="mb-1 text-base font-bold text-[#c2185b]">久慈営業所</h4>
                 <p className="mb-2 text-sm leading-relaxed text-[#333]">
                   〒028-0041<br />
-                  岩手県久慈市天神堂第36地割118-B
+                  岩手県久慈市天神堂第36地割118-A
                 </p>
                 <p className="text-sm text-[#555]">
                   TEL: <a href="tel:0194-61-3211" className="text-[#c2185b] underline">0194-61-3211</a>

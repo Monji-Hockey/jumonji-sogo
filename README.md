@@ -10,6 +10,8 @@ Next.js (App Router) + TypeScript + Tailwind CSS で構築。Vercel へのデプ
 │   ├── page.tsx              # トップ（メインビジュアル・営業日カレンダー）
 │   ├── globals.css
 │   ├── api/calendar/route.ts # 営業日カレンダー用 API（公開 iCal 取得。本社・久慈のIDはデフォルト設定済み）
+│   ├── news/page.tsx         # お知らせ一覧
+│   ├── news/[id]/page.tsx    # お知らせ詳細
 │   ├── privacy/page.tsx      # 個人情報保護に関する基本方針
 │   ├── solicitation/page.tsx # 勧誘方針
 │   ├── fd-declaration/page.tsx # お客さま本位の業務運営方針（FD宣言）
@@ -19,9 +21,11 @@ Next.js (App Router) + TypeScript + Tailwind CSS で構築。Vercel へのデプ
 │   ├── Footer.tsx            # 重要文書リンク
 │   ├── GoogleAnalytics.tsx   # GA4 トラッキング（本番・ID 設定時のみ）
 │   ├── CalendarSection.tsx   # 営業日カレンダー（API 取得・自前描画・本社/久慈タブ・今月・来月のみ）
+│   ├── NewsSection.tsx       # トップ用お知らせ（最新3件・カード）
 │   └── ScrollRestoration.tsx
 ├── lib/
-│   └── gtag.ts               # GA4 用 pageview / event ヘルパー
+│   ├── gtag.ts               # GA4 用 pageview / event ヘルパー
+│   └── microcms.ts           # microCMS 取得（お知らせ API）
 ├── public/
 │   └── images/               # ロゴ等
 ├── docs/                      # 要件・デザイン・参考メモ
@@ -53,6 +57,16 @@ http://localhost:3000 で表示されます。
 - **環境変数（任意）:** 別のカレンダーに差し替える場合のみ、以下で上書きできます。
   - **二戸本社:** `NEXT_PUBLIC_GOOGLE_CALENDAR_ID` または `GOOGLE_CALENDAR_ID`
   - **久慈営業所:** `GOOGLE_CALENDAR_ID_KUJI` または `NEXT_PUBLIC_GOOGLE_CALENDAR_ID_KUJI`
+
+## お知らせ・ブログ（microCMS）
+
+トップページに「お知らせ」セクション（最新3件・カード表示）、一覧は `/news`、詳細は `/news/[id]` で表示します。microCMS の **List 形式 API** を使用しています。
+
+- **設定:** [microCMS](https://microcms.io) でサービスを作成し、コンテンツ API を追加します。
+  - **API エンドート名:** `news`（コード側で固定）
+  - **フィールド例:** タイトル（text）、本文（リッチエディタ。HTML で出力される想定）
+- **環境変数:** `.env.local` に `MICROCMS_SERVICE_DOMAIN`（例: `xxxx.microcms.io`）と `MICROCMS_API_KEY` を設定してください。
+- 未設定または記事が0件のときは「現在、お知らせはありません」と表示されます。
 
 ## 分析・アクセス解析
 
