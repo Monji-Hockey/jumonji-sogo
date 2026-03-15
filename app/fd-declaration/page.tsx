@@ -12,6 +12,9 @@ export default function FdDeclarationPage() {
       <h1 className="mb-8 border-b border-[#e8d46a]/50 pb-4 text-2xl font-bold text-[#333]">
         お客さま本位の業務運営方針（FD宣言）
       </h1>
+      <p className="mb-6 text-sm text-[#666]">
+        当社が定める業務運営方針（FD宣言）を掲載しています。
+      </p>
 
       <div className="space-y-8 text-[#333]">
         <p className="leading-relaxed">

@@ -34,7 +34,7 @@ export default function DisclosurePage() {
         <section>
           <h2 className="text-lg font-bold text-[#c2185b]">3. 推奨方針</h2>
           <p>
-            当社は、お客様のニーズ・ご事情に応じて、複数の保険会社の商品の中からご説明・ご提案を行います。推奨にあたっての考え方および手続は、勧誘方針・FD宣言と整合的に運用しています。
+            当社は、お客様のニーズ・ご事情に応じて、複数の保険会社の商品の中からご説明・ご提案を行います。推奨にあたっての考え方および手続は、<a href="/fd-declaration" className="text-[#c2185b] underline hover:no-underline">勧誘方針・FD宣言</a>と整合的に運用しています。
           </p>
         </section>
 
