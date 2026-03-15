@@ -19,7 +19,7 @@ export default function Header() {
             aria-label="株式会社十文字総合開発 トップページ"
           >
             <Image
-              src="/images/十文字総合開発_ロゴ.svg"
+              src="/images/十文字総合開発_ロゴ%26名前.svg"
               alt="株式会社十文字総合開発"
               width={200}
               height={56}

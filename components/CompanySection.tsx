@@ -41,21 +41,118 @@ export default function CompanySection() {
           岩手県二戸市に本社を構え、久慈市に営業所を置いております。地域の皆様に安心と信頼をお届けできるよう、スタッフ一同努めてまいります。
         </p>
 
-        {/* 取扱保険会社 */}
-        <div className="mb-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm sm:mb-10">
-          <span className="w-full text-center font-bold text-[#333] sm:w-auto sm:font-medium">取扱保険会社：</span>
-          <a href="https://www.sompo-japan.co.jp/" target="_blank" rel="noopener noreferrer" className="text-[#c2185b] underline hover:no-underline">
-            損保ジャパン
-          </a>
-          <a href="https://www.kyoeikasai.co.jp/" target="_blank" rel="noopener noreferrer" className="text-[#c2185b] underline hover:no-underline">
-            共栄火災
-          </a>
-          <a href="https://www.himawari-life.co.jp/" target="_blank" rel="noopener noreferrer" className="text-[#c2185b] underline hover:no-underline">
-            SOMPOひまわり生命
-          </a>
-          <a href="https://www.aflac.co.jp/" target="_blank" rel="noopener noreferrer" className="text-[#c2185b] underline hover:no-underline">
-            アフラック
-          </a>
+        {/* 取扱保険会社（ロゴボタン） */}
+        <div className="mb-8 sm:mb-10">
+          <p className="mb-4 w-full text-center text-sm font-bold text-[#333]">取扱保険会社</p>
+          <ul className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {/* 損保ジャパン：ロゴ画像は後日配置 */}
+            <li className="flex h-[96px] items-center justify-center rounded-xl border border-[#e8d46a]/50 bg-white p-4 shadow-sm transition hover:border-[#c2185b]/40 hover:shadow-md sm:h-[104px]">
+              <a
+                href="https://www.sompo-japan.co.jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-full w-full items-center justify-center text-center text-sm font-bold text-[#333]"
+              >
+                損保ジャパン
+              </a>
+            </li>
+            {/* 共栄火災 */}
+            <li className="flex h-[96px] items-center justify-center rounded-xl border border-[#e8d46a]/50 bg-white p-4 shadow-sm transition hover:border-[#c2185b]/40 hover:shadow-md sm:h-[104px]">
+              <a
+                href="https://www.kyoeikasai.co.jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-full w-full items-center justify-center"
+              >
+                <Image
+                  src="/images/共栄火災ロゴ.gif"
+                  alt="共栄火災"
+                  width={160}
+                  height={80}
+                  className="block max-h-[52px] w-auto max-w-full object-contain sm:max-h-[60px]"
+                />
+              </a>
+            </li>
+            {/* SOMPOひまわり生命 */}
+            <li className="flex h-[96px] items-center justify-center rounded-xl border border-[#e8d46a]/50 bg-white p-4 shadow-sm transition hover:border-[#c2185b]/40 hover:shadow-md sm:h-[104px]">
+              <a
+                href="https://www.himawari-life.co.jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-full w-full items-center justify-center"
+              >
+                <Image
+                  src="/images/SOMPOひまわり生命ロゴ.jpg"
+                  alt="SOMPOひまわり生命"
+                  width={160}
+                  height={80}
+                  className="block max-h-[52px] w-auto max-w-full object-contain sm:max-h-[60px]"
+                />
+              </a>
+            </li>
+            {/* アフラック */}
+            <li className="flex h-[96px] items-center justify-center rounded-xl border border-[#e8d46a]/50 bg-white p-4 shadow-sm transition hover:border-[#c2185b]/40 hover:shadow-md sm:h-[104px]">
+              <a
+                href="https://www.aflac.co.jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-full w-full items-center justify-center"
+              >
+                <Image
+                  src="/images/Aflacロゴ.jpg"
+                  alt="アフラック"
+                  width={160}
+                  height={80}
+                  className="block max-h-[52px] w-auto max-w-full object-contain sm:max-h-[60px]"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* 損保ジャパン提供情報（リンクサービス） */}
+        <div className="mb-8 rounded-xl border border-[#e8d46a]/40 bg-white p-5 shadow-sm sm:mb-10 sm:p-6">
+          <h3 className="mb-2 border-b border-[#c2185b]/30 pb-2 text-base font-bold text-[#c2185b]">
+            損保ジャパン提供情報
+          </h3>
+          <p className="mb-4 text-sm leading-relaxed text-[#666]">
+            損保ジャパンの代理店ホームページリンクサービスです。以下のリンクは当社ホームページからご利用ください。ほかのサイトから直接開いた場合、つながらないことがあります。
+          </p>
+          <ul className="space-y-3">
+            <li>
+              <a
+                href="https://agency-linkservice.sompo-japan.co.jp/AgencyCheck?agentno=0000728530&servicecd=01&serviceno=01"
+                target="_blank"
+                rel="noopener"
+                className="flex items-center justify-between gap-2 rounded-lg border border-[#e8d46a]/50 bg-[#fefdfb] px-4 py-3 text-left text-sm font-medium text-[#333] transition hover:border-[#c2185b]/40 hover:bg-[#fce4ec]/30"
+              >
+                <span>インターネット海外旅行保険契約サービス</span>
+                <span className="shrink-0 text-[#c2185b]" aria-hidden>→</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://agency-linkservice.sompo-japan.co.jp/AgencyCheck?agentno=0000728530&servicecd=02&serviceno=01"
+                target="_blank"
+                rel="noopener"
+                className="flex items-center justify-between gap-2 rounded-lg border border-[#e8d46a]/50 bg-[#fefdfb] px-4 py-3 text-left text-sm font-medium text-[#333] transition hover:border-[#c2185b]/40 hover:bg-[#fce4ec]/30"
+              >
+                <span>自動車保険　保険料お見積りサービス</span>
+                <span className="shrink-0 text-[#c2185b]" aria-hidden>→</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://agency-linkservice.sompo-japan.co.jp/AgencyCheck?agentno=0000728530&servicecd=02&serviceno=01&servicecdSub=01"
+                target="_blank"
+                rel="noopener"
+                className="flex items-center justify-between gap-2 rounded-lg border border-[#e8d46a]/50 bg-[#fefdfb] px-4 py-3 text-left text-sm font-medium text-[#333] transition hover:border-[#c2185b]/40 hover:bg-[#fce4ec]/30"
+              >
+                <span>自動車保険　サクっと見積りサービス</span>
+                <span className="shrink-0 text-[#c2185b]" aria-hidden>→</span>
+              </a>
+            </li>
+          </ul>
         </div>
 
         {/* 会社画像（デスクトップでは幅を抑えめに） */}

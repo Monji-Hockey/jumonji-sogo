@@ -18,13 +18,13 @@ export default function Home() {
           <p className="mb-2 text-sm font-bold tracking-wider text-[#c2185b] sm:text-base">
             保険代理店として、お陰様で30周年をむかえました
           </p>
-          <div className="mb-6 flex justify-center">
+          <div className="mb-6 flex w-full justify-center overflow-hidden">
             <Image
-              src="/images/十文字総合開発_ロゴ.svg"
+              src="/images/十文字総合開発_ロゴ%26名前.svg"
               alt="株式会社十文字総合開発"
               width={280}
               height={84}
-              className="h-20 w-auto sm:h-24 md:h-28"
+              className="mx-auto block h-20 w-auto sm:h-24 md:h-28"
               priority
             />
           </div>
