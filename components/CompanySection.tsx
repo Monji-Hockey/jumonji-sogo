@@ -175,7 +175,7 @@ export default function CompanySection() {
                 会社情報
               </h3>
               <Image
-                src="/images/十文字総合開発_ロゴだけ.svg"
+                src="/images/jumonji-logo-icon.svg"
                 alt="株式会社 十文字総合開発 ロゴ"
                 width={160}
                 height={48}
