@@ -3,6 +3,7 @@ import Link from "next/link";
 import CompanySection from "@/components/CompanySection";
 import CalendarSection from "@/components/CalendarSection";
 import NewsSection from "@/components/NewsSection";
+import VoicesSection from "@/components/VoicesSection";
 
 export default function Home() {
   return (
@@ -127,6 +128,9 @@ export default function Home() {
 
       {/* お知らせ：最新3件 */}
       <NewsSection />
+
+      {/* お客様の声：抜粋 */}
+      <VoicesSection />
 
       {/* 営業日カレンダー：ボタンで今月/来月を切り替え */}
       <CalendarSection />

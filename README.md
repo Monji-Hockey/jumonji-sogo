@@ -58,6 +58,11 @@ http://localhost:3000 で表示されます。
   - **二戸本社:** `NEXT_PUBLIC_GOOGLE_CALENDAR_ID` または `GOOGLE_CALENDAR_ID`
   - **久慈営業所:** `GOOGLE_CALENDAR_ID_KUJI` または `NEXT_PUBLIC_GOOGLE_CALENDAR_ID_KUJI`
 
+**表示されない場合の確認:**
+- **「カレンダーを取得できませんでした。Googleカレンダーの公開設定をご確認ください。」と出る** → 取得失敗。カレンダーの「一般公開」設定がオフ、または URL が変わっている可能性があります。先方に共有設定の確認をお願いしてください。環境変数は不要（デフォルトID使用）です。
+- **「この期間に予定はありません。」と出る／何も表示されないがエラーは出ない** → 取得は成功しており、該当月に予定が1件も入っていない状態です。先方にカレンダーへ予定を追加してもらってください。
+- 動作確認用: ブラウザで `https://calendar.google.com/calendar/ical/2d004a3110eb8dcffc4491cc848589cb659140103427333d1108370b2fcd1e1d%40group.calendar.google.com/public/basic.ics`（本社）を開き、.ics が表示されれば公開設定は問題ありません。
+
 ## お知らせ・ブログ（microCMS）
 
 トップページに「お知らせ」セクション（最新3件・カード表示）、一覧は `/news`、詳細は `/news/[id]` で表示します。microCMS の **List 形式 API** を使用しています。

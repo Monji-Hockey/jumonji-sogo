@@ -108,7 +108,11 @@ export default function CalendarSection() {
       const data = await res.json();
       if (!res.ok) {
         setEvents([]);
-        setError(data.error ?? "読み込みに失敗しました");
+        setError(
+          data.error === "Failed to load calendar"
+            ? "カレンダーを取得できませんでした。Googleカレンダーの「公開設定」をご確認ください。"
+            : (data.error ?? "読み込みに失敗しました")
+        );
         return;
       }
       setEvents(data.events ?? []);
@@ -255,7 +259,14 @@ export default function CalendarSection() {
         </div>
 
         {error && (
-          <p className="mt-2 text-center text-xs text-[#c2185b]">{error}</p>
+          <p className="mt-2 text-center text-sm text-[#c2185b]" role="alert">
+            {error}
+          </p>
+        )}
+        {!loading && !error && events.length === 0 && (
+          <p className="mt-2 text-center text-xs text-[#666]">
+            この期間に予定はありません。
+          </p>
         )}
       </div>
 

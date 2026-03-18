@@ -14,6 +14,14 @@ export default function Footer() {
           <ul className="space-y-2">
             <li>
               <Link
+                href="/voices"
+                className="inline-block py-1 text-sm text-[#c2185b] hover:underline sm:py-0"
+              >
+                お客様の声
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/news"
                 className="inline-block py-1 text-sm text-[#c2185b] hover:underline sm:py-0"
               >
