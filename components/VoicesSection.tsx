@@ -36,14 +36,15 @@ export default function VoicesSection() {
                 className="rounded-xl border border-[#e8d46a]/50 bg-[#fefdf8] p-5 shadow-sm"
               >
                 <p className="text-xs font-bold tracking-wide text-[#c2185b]">
-                  {v.area} {v.nameLabel}
+                  {v.customerLabel}
                 </p>
+                <p className="mt-1 text-sm font-bold text-[#333]">{v.subject}</p>
                 <p className="mt-3 text-sm leading-relaxed text-[#333]">
                   {getExcerpt(v.body, 110)}
                 </p>
                 <div className="mt-4">
                   <Link
-                    href="/voices"
+                    href={`/voices/${v.id}`}
                     className="text-sm font-bold text-[#c2185b] underline hover:no-underline"
                   >
                     続きを読む

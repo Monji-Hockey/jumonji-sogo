@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
+import Link from "next/link";
 import { VOICES } from "@/lib/voices";
+
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "お客様の声",
@@ -29,9 +31,18 @@ export default function VoicesPage() {
                 className="rounded-xl border border-[#e8d46a]/50 bg-[#fefdf8] p-6 shadow-sm"
               >
                 <p className="text-xs font-bold tracking-wide text-[#c2185b]">
-                  {v.area} {v.nameLabel}
+                  {v.customerLabel}
                 </p>
+                <p className="mt-1 text-lg font-bold text-[#333]">{v.subject}</p>
                 <p className="mt-3 leading-relaxed text-[#333]">{v.body}</p>
+                <div className="mt-4">
+                  <Link
+                    href={`/voices/${v.id}`}
+                    className="text-sm font-bold text-[#c2185b] underline hover:no-underline"
+                  >
+                    詳細を見る
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
