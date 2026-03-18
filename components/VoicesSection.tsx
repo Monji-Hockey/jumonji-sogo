@@ -1,15 +1,26 @@
 import Link from "next/link";
 import { getExcerpt, getLatestVoices } from "@/lib/voices";
 
-export default function VoicesSection() {
+type VoicesSectionProps = {
+  variant?: "standalone" | "embedded";
+};
+
+export default function VoicesSection({ variant = "standalone" }: VoicesSectionProps) {
   const voices = getLatestVoices(3);
+  const isEmbedded = variant === "embedded";
 
   return (
-    <section className="border-y border-[#e8d46a]/30 bg-[#fefdfb] px-3 py-12 sm:px-4 sm:py-14 lg:px-12 xl:px-20">
-      <div className="mx-auto max-w-4xl">
+    <section
+      className={
+        isEmbedded
+          ? "mb-10"
+          : "border-y border-[#e8d46a]/30 bg-[#fefdfb] px-3 py-12 sm:px-4 sm:py-14 lg:px-12 xl:px-20"
+      }
+    >
+      <div className={isEmbedded ? "mx-auto max-w-5xl" : "mx-auto max-w-4xl"}>
         <div className="mb-6 flex items-end justify-between gap-3">
           <div>
-            <h2 className="text-xl font-bold text-[#333] sm:text-2xl">
+            <h2 className={isEmbedded ? "text-lg font-bold text-[#333] sm:text-xl" : "text-xl font-bold text-[#333] sm:text-2xl"}>
               お客様の声
             </h2>
             <p className="mt-1 text-sm text-[#666]">

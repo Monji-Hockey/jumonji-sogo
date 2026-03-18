@@ -1,4 +1,5 @@
 import Image from "next/image";
+import VoicesSection from "@/components/VoicesSection";
 
 const STRENGTHS = [
   {
@@ -154,6 +155,9 @@ export default function CompanySection() {
             </li>
           </ul>
         </div>
+
+        {/* お客様の声（抜粋） */}
+        <VoicesSection variant="embedded" />
 
         {/* 会社画像（デスクトップでは幅を抑えめに） */}
         <div className="mx-auto mb-10 max-w-2xl overflow-hidden rounded-xl shadow-md sm:mb-12 md:max-w-xl">

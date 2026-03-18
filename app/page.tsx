@@ -3,7 +3,6 @@ import Link from "next/link";
 import CompanySection from "@/components/CompanySection";
 import CalendarSection from "@/components/CalendarSection";
 import NewsSection from "@/components/NewsSection";
-import VoicesSection from "@/components/VoicesSection";
 
 export default function Home() {
   return (
@@ -122,9 +121,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* お客様の声：抜粋 */}
-      <VoicesSection />
 
       {/* 会社概要（設立・代表メッセージ・強み・営業所） */}
       <CompanySection />
