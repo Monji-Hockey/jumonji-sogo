@@ -123,14 +123,14 @@ export default function Home() {
         </div>
       </section>
 
+      {/* お客様の声：抜粋 */}
+      <VoicesSection />
+
       {/* 会社概要（設立・代表メッセージ・強み・営業所） */}
       <CompanySection />
 
       {/* お知らせ：最新3件 */}
       <NewsSection />
-
-      {/* お客様の声：抜粋 */}
-      <VoicesSection />
 
       {/* 営業日カレンダー：ボタンで今月/来月を切り替え */}
       <CalendarSection />
