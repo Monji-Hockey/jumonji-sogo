@@ -25,7 +25,7 @@ export default function Home() {
               alt="株式会社十文字総合開発"
               width={280}
               height={84}
-              className="mx-auto block h-20 w-auto max-w-full object-contain sm:h-24 md:h-28"
+              className="mx-auto block h-24 w-auto max-w-full object-contain sm:h-28 md:h-32"
               priority
             />
           </div>

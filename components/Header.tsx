@@ -43,7 +43,7 @@ export default function Header() {
                 alt="株式会社十文字総合開発"
                 width={200}
                 height={56}
-                className="h-10 w-auto max-w-full object-contain sm:h-14"
+                className="h-11 w-auto max-w-full object-contain sm:h-16"
                 priority
               />
             </Link>

@@ -189,7 +189,7 @@ export default function CompanySection() {
                 alt="株式会社 十文字総合開発 ロゴ"
                 width={160}
                 height={48}
-                className="h-8 w-auto max-w-[180px] object-contain sm:h-10"
+                className="h-10 w-auto max-w-[220px] object-contain sm:h-12"
               />
             </div>
             <dl className="space-y-3 text-sm text-[#333]">
