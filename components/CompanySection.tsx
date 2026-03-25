@@ -76,7 +76,7 @@ export default function CompanySection() {
                   alt="共栄火災"
                   width={160}
                   height={80}
-                  className="block max-h-[52px] w-auto max-w-full object-contain sm:max-h-[60px]"
+                  className="block max-h-[40px] w-auto max-w-full object-contain sm:max-h-[48px]"
                 />
               </a>
             </li>
@@ -110,7 +110,7 @@ export default function CompanySection() {
                   alt="アフラック"
                   width={160}
                   height={80}
-                  className="block max-h-[52px] w-auto max-w-full object-contain sm:max-h-[60px]"
+                  className="block max-h-[40px] w-auto max-w-full object-contain sm:max-h-[48px]"
                 />
               </a>
             </li>

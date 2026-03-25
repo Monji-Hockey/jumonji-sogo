@@ -47,6 +47,15 @@ export default function VoicesPage() {
             ))}
           </div>
         )}
+
+        <p className="mt-8 text-center">
+          <Link
+            href="/"
+            className="inline-block rounded-lg border-2 border-[#c2185b] bg-white px-5 py-2.5 text-sm font-bold text-[#c2185b] transition hover:bg-[#fce4ec]/50"
+          >
+            ホームに戻る
+          </Link>
+        </p>
       </div>
     </main>
   );

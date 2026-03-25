@@ -35,12 +35,20 @@ export default async function VoiceDetailPage({ params }: PageProps) {
           <h1 className="border-b border-[#e8d46a]/50 pb-3 text-2xl font-bold text-[#333]">
             お客様の声
           </h1>
-          <Link
-            href="/voices"
-            className="rounded-lg border border-[#c2185b]/30 bg-white px-3 py-2 text-sm font-bold text-[#c2185b] shadow-sm transition hover:bg-[#fce4ec]/40"
-          >
-            一覧へ戻る
-          </Link>
+          <div className="flex flex-wrap items-center gap-2">
+            <Link
+              href="/"
+              className="rounded-lg border-2 border-[#c2185b]/30 bg-white px-3 py-2 text-sm font-bold text-[#c2185b] shadow-sm transition hover:bg-[#fce4ec]/40"
+            >
+              ホームに戻る
+            </Link>
+            <Link
+              href="/voices"
+              className="rounded-lg border border-[#c2185b]/30 bg-white px-3 py-2 text-sm font-bold text-[#c2185b] shadow-sm transition hover:bg-[#fce4ec]/40"
+            >
+              一覧へ戻る
+            </Link>
+          </div>
         </div>
 
         <article className="rounded-xl border border-[#e8d46a]/50 bg-[#fefdf8] p-6 shadow-sm">
