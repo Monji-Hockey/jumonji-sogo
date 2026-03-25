@@ -76,7 +76,7 @@ export default function CompanySection() {
                   alt="共栄火災"
                   width={160}
                   height={80}
-                  className="block max-h-[40px] w-auto max-w-full object-contain sm:max-h-[48px]"
+                  className="block max-h-[36px] w-auto max-w-full object-contain sm:max-h-[44px]"
                 />
               </a>
             </li>

@@ -17,8 +17,9 @@ export default async function NewsSection() {
   return (
     <section className="border-y border-[#e8d46a]/30 bg-[#fefdfb] px-3 py-10 sm:px-4 sm:py-12 lg:px-12 xl:px-20">
       <div className="mx-auto max-w-4xl">
-        <h2 className="mb-2 text-center text-xl font-bold text-[#333] sm:text-2xl">
-          お知らせ
+        <h2 className="mb-2 flex justify-center gap-2 text-xl font-bold text-[#333] sm:text-2xl">
+          <span aria-hidden>📰</span>
+          <span>お知らせ</span>
         </h2>
         <p className="mb-6 text-center text-sm text-[#666]">
           最新のお知らせを掲載しています。
@@ -42,7 +43,7 @@ export default async function NewsSection() {
                   >
                     {formatDate(item.publishedAt)}
                   </time>
-                  <h3 className="line-clamp-2 font-bold text-[#333] sm:text-base">
+                  <h3 className="line-clamp-2 min-h-[2.5rem] font-bold leading-relaxed text-[#333] text-sm sm:min-h-[3rem] sm:text-base">
                     {item.title}
                   </h3>
                 </Link>

@@ -17,8 +17,9 @@ export default async function DayoriSection() {
   return (
     <section className="border-y border-[#e8d46a]/30 bg-[#fefdfb] px-3 py-10 sm:px-4 sm:py-12 lg:px-12 xl:px-20">
       <div className="mx-auto max-w-4xl">
-        <h2 className="mb-2 text-center text-xl font-bold text-[#333] sm:text-2xl">
-          十文字総合開発だより
+        <h2 className="mb-2 flex justify-center gap-2 text-xl font-bold text-[#333] sm:text-2xl">
+          <span aria-hidden>✉️</span>
+          <span>十文字総合開発だより</span>
         </h2>
         <p className="mb-6 text-center text-sm text-[#666]">
           社員からのちょっとした発信をお届けします。
@@ -42,7 +43,7 @@ export default async function DayoriSection() {
                   >
                     {formatDate(item.publishedAt)}
                   </time>
-                  <h3 className="line-clamp-2 font-bold text-[#333] sm:text-base">
+                  <h3 className="line-clamp-2 min-h-[2.5rem] font-bold leading-relaxed text-[#333] text-sm sm:min-h-[3rem] sm:text-base">
                     {item.title}
                   </h3>
                 </Link>
