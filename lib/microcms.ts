@@ -8,7 +8,16 @@ export type NewsItem = {
   revisedAt?: string;
 };
 
-const endpoint = "news";
+export type DayoriItem = {
+  id: string;
+  title: string;
+  body?: string;
+  publishedAt?: string;
+  revisedAt?: string;
+};
+
+const newsEndpoint = "news";
+const dayoriEndpoint = "dayori";
 
 function getClient() {
   const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN;
@@ -26,7 +35,7 @@ export async function getNewsList(limit = 10, offset = 0): Promise<{
   try {
     const client = getClient();
     const res = await client.getList<NewsItem>({
-      endpoint,
+      endpoint: newsEndpoint,
       queries: {
         limit,
         offset,
@@ -46,7 +55,43 @@ export async function getNewsDetail(contentId: string): Promise<NewsItem | null>
   try {
     const client = getClient();
     const res = await client.getListDetail<NewsItem>({
-      endpoint,
+      endpoint: newsEndpoint,
+      contentId,
+    });
+    return res;
+  } catch {
+    return null;
+  }
+}
+
+export async function getDayoriList(limit = 10, offset = 0): Promise<{
+  contents: DayoriItem[];
+  totalCount: number;
+}> {
+  try {
+    const client = getClient();
+    const res = await client.getList<DayoriItem>({
+      endpoint: dayoriEndpoint,
+      queries: {
+        limit,
+        offset,
+        orders: "-publishedAt",
+      },
+    });
+    return {
+      contents: res.contents ?? [],
+      totalCount: res.totalCount ?? 0,
+    };
+  } catch {
+    return { contents: [], totalCount: 0 };
+  }
+}
+
+export async function getDayoriDetail(contentId: string): Promise<DayoriItem | null> {
+  try {
+    const client = getClient();
+    const res = await client.getListDetail<DayoriItem>({
+      endpoint: dayoriEndpoint,
       contentId,
     });
     return res;

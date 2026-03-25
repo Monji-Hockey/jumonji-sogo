@@ -6,6 +6,7 @@ import { useState, useCallback } from "react";
 
 const MENU_LINKS = [
   { href: "/news", label: "お知らせ" },
+  { href: "/dayori", label: "十文字総合開発だより" },
   { href: "/contact", label: "お問い合わせ" },
   { href: "/#company", label: "会社概要" },
   { href: "/privacy", label: "個人情報保護に関する基本方針" },
@@ -42,7 +43,7 @@ export default function Header() {
                 alt="株式会社十文字総合開発"
                 width={200}
                 height={56}
-                className="h-10 w-auto sm:h-14"
+                className="h-10 w-auto max-w-full object-contain sm:h-14"
                 priority
               />
             </Link>

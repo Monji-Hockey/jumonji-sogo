@@ -1,0 +1,68 @@
+import Link from "next/link";
+import { getDayoriList } from "@/lib/microcms";
+
+function formatDate(s: string | undefined): string {
+  if (!s) return "";
+  const d = new Date(s);
+  return d.toLocaleDateString("ja-JP", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
+export default async function DayoriSection() {
+  const { contents } = await getDayoriList(3, 0);
+
+  return (
+    <section className="border-y border-[#e8d46a]/30 bg-[#fefdfb] px-3 py-10 sm:px-4 sm:py-12 lg:px-12 xl:px-20">
+      <div className="mx-auto max-w-4xl">
+        <h2 className="mb-2 text-center text-xl font-bold text-[#333] sm:text-2xl">
+          十文字総合開発だより
+        </h2>
+        <p className="mb-6 text-center text-sm text-[#666]">
+          社員からのちょっとした発信をお届けします。
+        </p>
+
+        {contents.length === 0 ? (
+          <p className="rounded-xl border border-[#e8d46a]/40 bg-white py-8 text-center text-sm text-[#666] shadow-sm">
+            現在、十文字総合開発だよりはありません
+          </p>
+        ) : (
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {contents.map((item) => (
+              <li key={item.id}>
+                <Link
+                  href={`/dayori/${item.id}`}
+                  className="block rounded-xl border border-[#e8d46a]/40 bg-white p-5 shadow-sm transition hover:border-[#c2185b]/40 hover:shadow-md"
+                >
+                  <time
+                    className="mb-2 block text-xs font-medium text-[#c2185b]"
+                    dateTime={item.publishedAt ?? ""}
+                  >
+                    {formatDate(item.publishedAt)}
+                  </time>
+                  <h3 className="line-clamp-2 font-bold text-[#333] sm:text-base">
+                    {item.title}
+                  </h3>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {contents.length > 0 && (
+          <p className="mt-6 text-center">
+            <Link
+              href="/dayori"
+              className="inline-block rounded-lg border-2 border-[#c2185b] bg-white px-5 py-2.5 text-sm font-bold text-[#c2185b] transition hover:bg-[#fce4ec]/50"
+            >
+              十文字総合開発だより一覧へ
+            </Link>
+          </p>
+        )}
+      </div>
+    </section>
+  );
+}
+

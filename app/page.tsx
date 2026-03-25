@@ -3,13 +3,14 @@ import Link from "next/link";
 import CompanySection from "@/components/CompanySection";
 import CalendarSection from "@/components/CalendarSection";
 import NewsSection from "@/components/NewsSection";
+import DayoriSection from "@/components/DayoriSection";
 
 export default function Home() {
   return (
     <>
       {/* メインビジュアル：30周年・経営理念（HP 会社案内.pdf 準拠） */}
       <section
-        className="relative overflow-hidden px-3 py-12 sm:px-4 sm:py-24 lg:px-12 xl:px-20"
+        className="relative px-3 py-12 sm:px-4 sm:py-24 lg:px-12 xl:px-20"
         style={{
           background: "linear-gradient(160deg, #f5e6a6 0%, #fce4ec 50%, #f5e6a6 100%)",
         }}
@@ -18,13 +19,13 @@ export default function Home() {
           <p className="mb-2 text-sm font-bold tracking-wider text-[#c2185b] sm:text-base">
             保険代理店として、お陰様で30周年をむかえました
           </p>
-          <div className="mb-6 flex w-full justify-center overflow-hidden">
+          <div className="mb-6 flex w-full justify-center">
             <Image
               src="/images/十文字総合開発_ロゴ%26名前.svg"
               alt="株式会社十文字総合開発"
               width={280}
               height={84}
-              className="mx-auto block h-20 w-auto sm:h-24 md:h-28"
+              className="mx-auto block h-20 w-auto max-w-full object-contain sm:h-24 md:h-28"
               priority
             />
           </div>
@@ -127,6 +128,9 @@ export default function Home() {
 
       {/* お知らせ：最新3件 */}
       <NewsSection />
+
+      {/* 十文字総合開発だより：最新3件 */}
+      <DayoriSection />
 
       {/* 営業日カレンダー：ボタンで今月/来月を切り替え */}
       <CalendarSection />

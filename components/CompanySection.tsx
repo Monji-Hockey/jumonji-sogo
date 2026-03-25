@@ -46,15 +46,21 @@ export default function CompanySection() {
         <div className="mb-8 sm:mb-10">
           <p className="mb-4 w-full text-center text-sm font-bold text-[#333]">取扱保険会社</p>
           <ul className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {/* 損保ジャパン：ロゴ画像は後日配置 */}
+            {/* 損保ジャパン */}
             <li className="flex h-[96px] items-center justify-center rounded-xl border border-[#e8d46a]/50 bg-white p-4 shadow-sm transition hover:border-[#c2185b]/40 hover:shadow-md sm:h-[104px]">
               <a
                 href="https://www.sompo-japan.co.jp/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-full w-full items-center justify-center text-center text-sm font-bold text-[#333]"
+                className="flex h-full w-full items-center justify-center"
               >
-                損保ジャパン
+                <Image
+                  src="/images/損保ジャパン_ロゴ.png"
+                  alt="損保ジャパン"
+                  width={160}
+                  height={80}
+                  className="block max-h-[52px] w-auto max-w-full object-contain sm:max-h-[60px]"
+                />
               </a>
             </li>
             {/* 共栄火災 */}
@@ -179,11 +185,11 @@ export default function CompanySection() {
                 会社情報
               </h3>
               <Image
-                src="/images/jumonji-logo-icon.svg"
+                src="/images/十文字総合開発_ロゴだけ.svg"
                 alt="株式会社 十文字総合開発 ロゴ"
                 width={160}
                 height={48}
-                className="h-8 w-auto sm:h-10"
+                className="h-8 w-auto max-w-[180px] object-contain sm:h-10"
               />
             </div>
             <dl className="space-y-3 text-sm text-[#333]">

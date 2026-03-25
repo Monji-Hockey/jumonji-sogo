@@ -30,6 +30,14 @@ export default function Footer() {
             </li>
             <li>
               <Link
+                href="/dayori"
+                className="inline-block py-1 text-sm text-[#c2185b] hover:underline sm:py-0"
+              >
+                十文字総合開発だより
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/contact"
                 className="inline-block py-1 text-sm text-[#c2185b] hover:underline sm:py-0"
               >
