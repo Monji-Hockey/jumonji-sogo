@@ -36,11 +36,31 @@ export default function CompanySection() {
           会社概要
         </h2>
         <p className="mb-2 text-center text-sm leading-relaxed text-[#666]">
-          損害保険と生命保険を扱う保険代理店です。
+          <b className="font-bold text-[#333]">損害保険</b>と<b className="font-bold text-[#333]">生命保険</b>を扱う保険代理店です。
         </p>
         <p className="mb-6 text-center text-sm leading-relaxed text-[#666] sm:mb-4">
           岩手県二戸市に本社を構え、久慈市に営業所を置いております。地域の皆様に安心と信頼をお届けできるよう、スタッフ一同努めてまいります。
         </p>
+
+        {/* 会社画像（デスクトップでは幅を抑えめに） */}
+        <div className="mx-auto mb-10 max-w-2xl overflow-hidden rounded-xl shadow-md sm:mb-12 md:max-w-xl">
+          <Image
+            src="/images/十文字総合開発_会社画像.jpg"
+            alt="株式会社十文字総合開発の会社の様子"
+            width={1200}
+            height={630}
+            className="h-auto w-full object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 672px, 576px"
+          />
+          <div className="bg-white px-4 py-3 text-center">
+            <a
+              href="/company"
+              className="text-sm font-bold text-[#c2185b] underline hover:no-underline"
+            >
+              詳しい会社情報ページへ
+            </a>
+          </div>
+        </div>
 
         {/* 取扱保険会社（ロゴボタン） */}
         <div className="mb-8 sm:mb-10">
@@ -164,71 +184,6 @@ export default function CompanySection() {
 
         {/* お客様の声（抜粋） */}
         <VoicesSection variant="embedded" />
-
-        {/* 会社画像（デスクトップでは幅を抑えめに） */}
-        <div className="mx-auto mb-10 max-w-2xl overflow-hidden rounded-xl shadow-md sm:mb-12 md:max-w-xl">
-          <Image
-            src="/images/十文字総合開発_会社画像.jpg"
-            alt="株式会社十文字総合開発の会社の様子"
-            width={1200}
-            height={630}
-            className="h-auto w-full object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 672px, 576px"
-          />
-        </div>
-
-        {/* 基本情報・代表メッセージ */}
-        <div className="mb-12 grid gap-8 sm:grid-cols-2 sm:gap-10">
-          <div className="rounded-xl border border-[#e8d46a]/40 bg-white p-6 shadow-sm">
-            <div className="mb-4 flex items-center justify-between border-b border-[#c2185b]/30 pb-2">
-              <h3 className="text-base font-bold text-[#c2185b]">
-                会社情報
-              </h3>
-              <Image
-                src="/images/十文字総合開発_ロゴだけ.svg"
-                alt="株式会社 十文字総合開発 ロゴ"
-                width={160}
-                height={48}
-                className="h-10 w-auto max-w-[220px] object-contain sm:h-12"
-              />
-            </div>
-            <dl className="space-y-3 text-sm text-[#333]">
-              <div>
-                <dt className="font-medium text-[#666]">社名</dt>
-                <dd>株式会社 十文字総合開発</dd>
-              </div>
-              <div>
-                <dt className="font-medium text-[#666]">代表取締役</dt>
-                <dd>十文字 直子</dd>
-              </div>
-              <div>
-                <dt className="font-medium text-[#666]">設立年月日</dt>
-                <dd>平成7年6月16日</dd>
-              </div>
-              <div>
-                <dt className="font-medium text-[#666]">営業時間</dt>
-                <dd>月曜〜土曜 8:00 〜 17:10</dd>
-              </div>
-              <div>
-                <dt className="font-medium text-[#666]">定休日</dt>
-                <dd>日曜日、祝日（隔週水・土は不定休あり）</dd>
-              </div>
-            </dl>
-          </div>
-          <div className="rounded-xl border border-[#e8d46a]/40 bg-white p-6 shadow-sm">
-            <h3 className="mb-4 border-b border-[#c2185b]/30 pb-2 text-base font-bold text-[#c2185b]">
-              代表メッセージ
-            </h3>
-            <p className="text-sm leading-relaxed text-[#333]">
-              おかげさまで創業より30年、地域の皆様に保険のご相談を承ってまいりました。
-              私たちは「保険を通じて、お客様と社員の幸せを守ること」を経営理念に掲げ、お客様一人ひとりに寄り添ったご提案と、契約後のきめ細かなサポートに努めております。
-              これからも、安心してご相談いただける保険代理店であり続けますよう、スタッフ一同精進してまいります。どうぞよろしくお願いいたします。
-            </p>
-            <p className="mt-4 text-right text-sm font-medium text-[#555]">
-              代表取締役　十文字 直子
-            </p>
-          </div>
-        </div>
 
         {/* 私たちが大切にしていること（4つのポイント） */}
         <div className="mb-12">

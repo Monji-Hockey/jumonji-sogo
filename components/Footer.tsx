@@ -46,7 +46,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/#company"
+                href="/company"
                 className="inline-block py-1 text-sm text-[#c2185b] hover:underline sm:py-0"
               >
                 会社概要
