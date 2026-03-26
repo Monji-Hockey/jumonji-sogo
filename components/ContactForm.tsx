@@ -25,6 +25,7 @@ export default function ContactForm() {
       phone: "",
       email: "",
       message: "",
+      botField: "",
     },
   });
 
@@ -73,6 +74,18 @@ export default function ContactForm() {
       noValidate
     >
       <div className="space-y-5">
+        {/* Bot対策のハニーポット（人間には非表示） */}
+        <div className="hidden" aria-hidden>
+          <label htmlFor="contact-company-name">会社名（入力しないでください）</label>
+          <input
+            id="contact-company-name"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            {...register("botField")}
+          />
+        </div>
+
         <div>
           <label htmlFor="contact-name" className={labelClass}>
             名前 <span className="text-[#c2185b]">*</span>

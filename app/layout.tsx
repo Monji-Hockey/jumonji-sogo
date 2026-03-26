@@ -6,7 +6,10 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollRestoration from "@/components/ScrollRestoration";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "株式会社十文字総合開発 | 保険代理店 岩手県二戸市・久慈市",
     template: "%s | 十文字総合開発",

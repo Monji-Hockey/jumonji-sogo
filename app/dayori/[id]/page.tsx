@@ -1,18 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDayoriDetail, getDayoriList } from "@/lib/microcms";
+import { formatJaDate } from "@/lib/date";
 
 type Props = { params: Promise<{ id: string }> };
-
-function formatDate(s: string | undefined): string {
-  if (!s) return "";
-  const d = new Date(s);
-  return d.toLocaleDateString("ja-JP", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
 
 export async function generateStaticParams() {
   const { contents } = await getDayoriList(100, 0).catch(() => ({ contents: [] }));
@@ -43,7 +34,7 @@ export default async function DayoriDetailPage({ params }: Props) {
             className="mb-2 block text-sm font-medium text-[#c2185b]"
             dateTime={post.publishedAt ?? ""}
           >
-            {formatDate(post.publishedAt)}
+            {formatJaDate(post.publishedAt)}
           </time>
           <h1 className="text-xl font-bold text-[#333] sm:text-2xl">{post.title}</h1>
         </header>

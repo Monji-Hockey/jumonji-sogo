@@ -53,10 +53,15 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: message }, { status: 400 });
   }
 
+  // ハニーポットに値が入っている場合はbotとみなして成功扱いで早期終了
+  if (parsed.data.botField && parsed.data.botField.trim() !== "") {
+    return NextResponse.json({ ok: true });
+  }
+
   const resend = new Resend(apiKey);
 
   const { data, error } = await resend.emails.send({
-    from: "十文字総合開発お問い合わせ <onboarding@resend.dev>",
+    from: `十文字総合開発お問い合わせ <${FROM_EMAIL}>`,
     to: [TO_EMAIL],
     replyTo: parsed.data.email,
     subject: `【お問い合わせ】${parsed.data.name} 様`,

@@ -1,21 +1,12 @@
 import Link from "next/link";
 import { getNewsList } from "@/lib/microcms";
-
-function formatDate(s: string | undefined): string {
-  if (!s) return "";
-  const d = new Date(s);
-  return d.toLocaleDateString("ja-JP", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
+import { formatJaDate } from "@/lib/date";
 
 export default async function NewsSection() {
   const { contents } = await getNewsList(3, 0);
 
   return (
-    <section className="border-y border-[#e8d46a]/30 bg-[#fefdfb] px-3 py-10 sm:px-4 sm:py-12 lg:px-12 xl:px-20">
+    <section className="bg-[#fefdfb] px-3 py-10 sm:px-4 sm:py-12 lg:px-12 xl:px-20">
       <div className="mx-auto max-w-4xl">
         <h2 className="mb-2 flex justify-center gap-2 text-xl font-bold text-[#333] sm:text-2xl">
           <span aria-hidden>📰</span>
@@ -41,7 +32,7 @@ export default async function NewsSection() {
                     className="mb-2 block text-xs font-medium text-[#c2185b]"
                     dateTime={item.publishedAt ?? ""}
                   >
-                    {formatDate(item.publishedAt)}
+                    {formatJaDate(item.publishedAt)}
                   </time>
                   <h3 className="line-clamp-2 min-h-[2.5rem] font-bold leading-relaxed text-[#333] text-sm sm:min-h-[3rem] sm:text-base">
                     {item.title}

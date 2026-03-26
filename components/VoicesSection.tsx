@@ -14,7 +14,7 @@ export default function VoicesSection({ variant = "standalone" }: VoicesSectionP
       className={
         isEmbedded
           ? "mb-10"
-          : "border-y border-[#e8d46a]/30 bg-[#fefdfb] px-3 py-12 sm:px-4 sm:py-14 lg:px-12 xl:px-20"
+          : "bg-[#fefdfb] px-3 py-12 sm:px-4 sm:py-14 lg:px-12 xl:px-20"
       }
     >
       <div className={isEmbedded ? "mx-auto max-w-5xl" : "mx-auto max-w-4xl"}>

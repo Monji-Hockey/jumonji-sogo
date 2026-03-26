@@ -139,7 +139,7 @@ export default function CompanySection() {
 
         {/* 損保ジャパン提供情報（リンクサービス） */}
         <div className="mb-8 rounded-xl border border-[#e8d46a]/40 bg-white p-5 shadow-sm sm:mb-10 sm:p-6">
-          <h3 className="mb-2 border-b border-[#c2185b]/30 pb-2 text-base font-bold text-[#c2185b]">
+          <h3 className="mb-3 text-base font-bold text-[#c2185b]">
             損保ジャパン提供情報
           </h3>
           <p className="mb-4 text-sm leading-relaxed text-[#666]">

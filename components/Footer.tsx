@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer
-      className="mt-auto border-t border-black/5"
+      className="mt-auto"
       style={{
         background: "linear-gradient(180deg, #faf5e8 0%, #f5ebe0 100%)",
       }}

@@ -1,20 +1,11 @@
 import Link from "next/link";
 import { getDayoriList } from "@/lib/microcms";
+import { formatJaDate } from "@/lib/date";
 
 export const metadata = {
   title: "十文字総合開発だより",
   description: "株式会社十文字総合開発の社員発信一覧です。",
 };
-
-function formatDate(s: string | undefined): string {
-  if (!s) return "";
-  const d = new Date(s);
-  return d.toLocaleDateString("ja-JP", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
 
 export default async function DayoriListPage() {
   const { contents } = await getDayoriList(50, 0);
@@ -45,7 +36,7 @@ export default async function DayoriListPage() {
                     className="mb-2 block text-xs font-medium text-[#c2185b]"
                     dateTime={item.publishedAt ?? ""}
                   >
-                    {formatDate(item.publishedAt)}
+                    {formatJaDate(item.publishedAt)}
                   </time>
                   <h2 className="font-bold text-[#333] sm:text-lg">{item.title}</h2>
                 </Link>

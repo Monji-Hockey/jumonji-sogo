@@ -31,7 +31,7 @@ export default function Home() {
                 priority
               />
             </div>
-            <div className="mt-10 border-t border-[#e8d46a]/40 pt-8">
+            <div className="mt-10 pt-8">
               <h2 className="mb-3 text-sm font-bold tracking-wide text-[#c2185b]">
                 スズランに込めた想い
               </h2>
@@ -45,7 +45,7 @@ export default function Home() {
 
       {/* 各種お問い合わせ・事故・故障受付 */}
       <RevealOnScroll delayMs={80}>
-        <section className="border-y border-[#e8d46a]/30 bg-[#fefdfb] px-3 py-8 sm:px-4 sm:py-10 lg:px-12 xl:px-20">
+        <section className="bg-[#fefdfb] px-3 py-8 sm:px-4 sm:py-10 lg:px-12 xl:px-20">
           <div className="mx-auto flex max-w-2xl flex-col items-center gap-8 text-center">
             {/* 各種お問い合わせ */}
             <div className="flex w-full flex-col items-center gap-3">
@@ -125,28 +125,6 @@ export default function Home() {
       <RevealOnScroll delayMs={200}>
         <CalendarSection />
       </RevealOnScroll>
-
-      {/* 経営理念・経営ビジョン（同じデザインで並列） */}
-      <section className="border-y border-[#e8d46a]/30 bg-[#fefdfb] px-3 py-10 sm:px-4 sm:py-12 lg:px-12 xl:px-20">
-        <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2 sm:gap-8">
-          <div className="rounded-xl border border-[#e8d46a]/50 bg-[#fefdf8] px-5 py-5 sm:px-6 sm:py-6">
-            <p className="mb-2 text-xs font-bold tracking-wide text-[#c2185b]">経営理念</p>
-            <p className="text-sm leading-relaxed text-[#333] sm:text-base" style={{ fontFamily: "serif" }}>
-              保険を通じて、お客様と社員の幸せを守ること
-            </p>
-            <p className="mt-2 text-xs leading-relaxed text-[#666]">
-              私たちの行動の指針となる理念です。お客様と社員、ともに幸せであることを願い、日々の業務に取り組んでおります。
-            </p>
-          </div>
-          <div className="rounded-xl border border-[#e8d46a]/50 bg-[#fefdf8] px-5 py-5 sm:px-6 sm:py-6">
-            <p className="mb-2 text-xs font-bold tracking-wide text-[#c2185b]">経営ビジョン</p>
-            <p className="text-sm leading-relaxed text-[#333] sm:text-base">
-              私たちは地域に根ざした保険代理店として、常に「お客様のために」を原点に行動します。
-              誠実な対応と確かな提案で地域に安心を届け、岩手県で最も頼られる存在を目指します。
-            </p>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
