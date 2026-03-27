@@ -12,7 +12,7 @@ export default function Home() {
       {/* メインビジュアル：30周年・経営理念（HP 会社案内.pdf 準拠） */}
       <RevealOnScroll>
         <section
-          className="relative px-3 py-12 sm:px-4 sm:py-24 lg:px-12 xl:px-20"
+          className="relative px-3 py-10 sm:px-4 sm:py-16 lg:px-12 xl:px-20"
           style={{
             background: "linear-gradient(160deg, #f5e6a6 0%, #fce4ec 50%, #f5e6a6 100%)",
           }}
@@ -31,7 +31,7 @@ export default function Home() {
                 priority
               />
             </div>
-            <div className="mt-10 pt-8">
+            <div className="mt-7 pt-5">
               <h2 className="mb-3 text-sm font-bold tracking-wide text-[#c2185b]">
                 スズランに込めた想い
               </h2>
