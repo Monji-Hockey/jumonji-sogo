@@ -2,8 +2,8 @@ import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 import { contactFormSchema, type ContactFormValues } from "@/lib/contactSchema";
 
-const FROM_EMAIL = "onboarding@resend.dev";
-const TO_EMAIL = "htakamura@festa.ocn.ne.jp";
+const DEFAULT_FROM_EMAIL = "no-reply@jumonji-sogo.com";
+const DEFAULT_TO_EMAIL = "htakamura@festa.ocn.ne.jp";
 
 function buildEmailHtml(body: ContactFormValues): string {
   return `
@@ -29,6 +29,8 @@ function escapeHtml(s: string): string {
 
 export async function POST(request: NextRequest) {
   const apiKey = process.env.RESEND_API_KEY;
+  const fromEmail = process.env.CONTACT_FROM_EMAIL || DEFAULT_FROM_EMAIL;
+  const toEmail = process.env.CONTACT_TO_EMAIL || DEFAULT_TO_EMAIL;
   if (!apiKey) {
     return NextResponse.json(
       { error: "メール送信の設定がありません" },
@@ -61,8 +63,8 @@ export async function POST(request: NextRequest) {
   const resend = new Resend(apiKey);
 
   const { data, error } = await resend.emails.send({
-    from: `十文字総合開発お問い合わせ <${FROM_EMAIL}>`,
-    to: [TO_EMAIL],
+    from: `十文字総合開発お問い合わせ <${fromEmail}>`,
+    to: [toEmail],
     replyTo: parsed.data.email,
     subject: `【お問い合わせ】${parsed.data.name} 様`,
     html: buildEmailHtml(parsed.data),

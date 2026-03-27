@@ -116,6 +116,21 @@ export default function CompanyPage() {
           </RevealOnScroll>
         </div>
 
+        <div className="flex justify-center">
+          <div className="inline-flex flex-col items-center gap-2 rounded-xl border border-[#f5d6a2] bg-[#fff8ed] px-4 py-3 shadow-sm sm:flex-row sm:gap-3">
+            <Image
+              src="/images/hitotsuboshi/color/security_action_hitotsuboshi-small_color.png"
+              alt="SECURITY ACTION 一つ星 ロゴ"
+              width={180}
+              height={60}
+              className="h-10 w-auto sm:h-11"
+            />
+            <p className="text-center text-xs font-medium leading-relaxed text-[#8b4a56] sm:text-left sm:text-sm">
+              SECURITY ACTION 一つ星を宣言しました
+            </p>
+          </div>
+        </div>
+
         <p className="pt-4 text-center">
           <Link
             href="/"
