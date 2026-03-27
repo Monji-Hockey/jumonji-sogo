@@ -6,7 +6,10 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollRestoration from "@/components/ScrollRestoration";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://jumonji-sogo.com").replace(
+  /\/$/,
+  ""
+);
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

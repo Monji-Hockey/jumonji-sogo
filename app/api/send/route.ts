@@ -72,6 +72,21 @@ export async function POST(request: NextRequest) {
 
   if (error) {
     console.error("[send] Resend error:", error);
+    const resendMessage = typeof error.message === "string" ? error.message : "";
+    const isDomainNotVerified =
+      error.name === "validation_error" &&
+      resendMessage.toLowerCase().includes("domain is not verified");
+
+    if (isDomainNotVerified) {
+      return NextResponse.json(
+        {
+          error:
+            "メール送信設定が未完了です。送信元ドメインの認証（Resend Domains）完了後に再度お試しください。",
+        },
+        { status: 502 }
+      );
+    }
+
     return NextResponse.json(
       { error: "送信に失敗しました。しばらく経ってからお試しください。" },
       { status: 502 }
