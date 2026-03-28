@@ -35,25 +35,24 @@ export default function CompanySection() {
         <h2 className="mb-2 text-center text-xl font-bold text-[#333] sm:text-2xl">
           会社概要
         </h2>
-        <div className="mb-8 grid gap-5 md:grid-cols-[1fr_340px] md:items-start lg:grid-cols-[1fr_380px]">
+        {/* 説明文は常に全幅。画像はその下に配置（横並びにしない） */}
+        <div className="mb-8 space-y-5">
           <div>
-            <p className="mb-2 text-center text-sm leading-relaxed text-[#666] md:text-left">
+            <p className="mb-2 text-center text-sm leading-relaxed text-[#666]">
               <b className="font-bold text-[#333]">損害保険</b>と<b className="font-bold text-[#333]">生命保険</b>を扱う保険代理店です。
             </p>
-            <p className="text-center text-sm leading-relaxed text-[#666] md:text-left">
+            <p className="text-center text-sm leading-relaxed text-[#666]">
               岩手県二戸市に本社を構え、久慈市に営業所を置いております。地域の皆様に安心と信頼をお届けできるよう、スタッフ一同努めてまいります。
             </p>
           </div>
-
-          {/* 会社画像（PCでは右に寄せて縦の占有を抑える） */}
-          <div className="mx-auto w-full max-w-sm overflow-hidden rounded-xl shadow-md md:mx-0 md:justify-self-end">
+          <div className="mx-auto w-full max-w-2xl overflow-hidden rounded-xl shadow-md md:max-w-xl">
             <Image
               src="/images/十文字総合開発_会社画像.jpg"
               alt="株式会社十文字総合開発の会社の様子"
               width={1200}
               height={630}
               className="h-auto w-full object-cover"
-              sizes="(max-width: 767px) 100vw, 380px"
+              sizes="(max-width: 768px) 100vw, 672px"
             />
             <div className="bg-white px-4 py-2.5 text-center">
               <a
