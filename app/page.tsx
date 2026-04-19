@@ -12,7 +12,6 @@ export const revalidate = 300;
 export default function Home() {
   return (
     <>
-      <RecentPublishBanner />
       {/* メインビジュアル：30周年・経営理念（HP 会社案内.pdf 準拠） */}
       <RevealOnScroll>
         <section
@@ -109,6 +108,9 @@ export default function Home() {
           </div>
         </section>
       </RevealOnScroll>
+
+      {/* 直近7日以内にお知らせ／だよりに新規公開があった場合のみ表示 */}
+      <RecentPublishBanner />
 
       {/* 会社概要（設立・代表メッセージ・強み・営業所） */}
       <RevealOnScroll delayMs={120}>
