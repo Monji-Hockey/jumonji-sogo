@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getDayoriDetail, getDayoriList } from "@/lib/microcms";
+import ArticleNewBadge from "@/components/ArticleNewBadge";
+import { getDayoriDetail, getDayoriList, getLatestDayoriPublished } from "@/lib/microcms";
 import { formatJaDate } from "@/lib/date";
 
 type Props = { params: Promise<{ id: string }> };
@@ -22,20 +23,25 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function DayoriDetailPage({ params }: Props) {
   const { id } = await params;
-  const post = await getDayoriDetail(id);
+  const [post, latest] = await Promise.all([getDayoriDetail(id), getLatestDayoriPublished()]);
 
   if (!post) notFound();
+
+  const isLatest = latest != null && post.id === latest.id;
 
   return (
     <main className="min-w-0 break-words px-3 py-10 sm:px-6 sm:py-16 lg:px-12 xl:px-20">
       <article className="mx-auto max-w-3xl">
         <header className="mb-8">
-          <time
-            className="mb-2 block text-sm font-medium text-[#c2185b]"
-            dateTime={post.publishedAt ?? ""}
-          >
-            {formatJaDate(post.publishedAt)}
-          </time>
+          <div className="mb-2 flex flex-wrap items-center gap-2">
+            <time
+              className="text-sm font-medium text-[#c2185b]"
+              dateTime={post.publishedAt ?? ""}
+            >
+              {formatJaDate(post.publishedAt)}
+            </time>
+            {isLatest ? <ArticleNewBadge /> : null}
+          </div>
           <h1 className="text-xl font-bold text-[#333] sm:text-2xl">{post.title}</h1>
         </header>
 

@@ -1,9 +1,11 @@
 import Link from "next/link";
+import ArticleNewBadge from "@/components/ArticleNewBadge";
 import { getDayoriList } from "@/lib/microcms";
 import { formatJaDate } from "@/lib/date";
 
 export default async function DayoriSection() {
   const { contents } = await getDayoriList(3, 0);
+  const latestId = contents[0]?.id;
 
   return (
     <section className="bg-[#fefdfb] px-3 py-10 sm:px-4 sm:py-12 lg:px-12 xl:px-20">
@@ -28,12 +30,15 @@ export default async function DayoriSection() {
                   href={`/dayori/${item.id}`}
                   className="block rounded-xl border border-[#e8d46a]/40 bg-white p-5 shadow-sm transition hover:border-[#c2185b]/40 hover:shadow-md"
                 >
-                  <time
-                    className="mb-2 block text-xs font-medium text-[#c2185b]"
-                    dateTime={item.publishedAt ?? ""}
-                  >
-                    {formatJaDate(item.publishedAt)}
-                  </time>
+                  <div className="mb-2 flex flex-wrap items-center gap-2">
+                    <time
+                      className="text-xs font-medium text-[#c2185b]"
+                      dateTime={item.publishedAt ?? ""}
+                    >
+                      {formatJaDate(item.publishedAt)}
+                    </time>
+                    {item.id === latestId ? <ArticleNewBadge /> : null}
+                  </div>
                   <h3 className="line-clamp-2 min-h-[2.5rem] font-bold leading-relaxed text-[#333] text-sm sm:min-h-[3rem] sm:text-base">
                     {item.title}
                   </h3>
