@@ -1,4 +1,4 @@
-/** トップの「直近に公開あり」バナー用。公開日からの日数。 */
+/** 直近公開バナー・NEW ラベル共通。`publishedAt` からの日数。 */
 export const RECENT_PUBLISH_DAYS = 7;
 
 /**

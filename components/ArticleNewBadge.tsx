@@ -2,7 +2,7 @@ type Props = {
   className?: string;
 };
 
-/** 公開日順で最も新しい記事1件向けのラベル */
+/** 公開から RECENT_PUBLISH_DAYS 日以内の記事向けラベル（呼び出し側で判定） */
 export default function ArticleNewBadge({ className = "" }: Props) {
   return (
     <span

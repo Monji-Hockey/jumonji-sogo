@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ArticleNewBadge from "@/components/ArticleNewBadge";
-import { getLatestNewsPublished, getNewsDetail, getNewsList } from "@/lib/microcms";
-import { formatJaDate } from "@/lib/date";
+import { getNewsDetail, getNewsList } from "@/lib/microcms";
+import { formatJaDate, isPublishedWithinDays, RECENT_PUBLISH_DAYS } from "@/lib/date";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -23,11 +23,11 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function NewsDetailPage({ params }: Props) {
   const { id } = await params;
-  const [post, latest] = await Promise.all([getNewsDetail(id), getLatestNewsPublished()]);
+  const post = await getNewsDetail(id);
 
   if (!post) notFound();
 
-  const isLatest = latest != null && post.id === latest.id;
+  const showNew = isPublishedWithinDays(post.publishedAt, RECENT_PUBLISH_DAYS);
 
   return (
     <main className="min-w-0 break-words px-3 py-10 sm:px-6 sm:py-16 lg:px-12 xl:px-20">
@@ -40,7 +40,7 @@ export default async function NewsDetailPage({ params }: Props) {
             >
               {formatJaDate(post.publishedAt)}
             </time>
-            {isLatest ? <ArticleNewBadge /> : null}
+            {showNew ? <ArticleNewBadge /> : null}
           </div>
           <h1 className="text-xl font-bold text-[#333] sm:text-2xl">
             {post.title}

@@ -1,11 +1,10 @@
 import Link from "next/link";
 import ArticleNewBadge from "@/components/ArticleNewBadge";
 import { getNewsList } from "@/lib/microcms";
-import { formatJaDate } from "@/lib/date";
+import { formatJaDate, isPublishedWithinDays, RECENT_PUBLISH_DAYS } from "@/lib/date";
 
 export default async function NewsSection() {
   const { contents } = await getNewsList(3, 0);
-  const latestId = contents[0]?.id;
 
   return (
     <section className="bg-[#fefdfb] px-3 py-10 sm:px-4 sm:py-12 lg:px-12 xl:px-20">
@@ -37,7 +36,9 @@ export default async function NewsSection() {
                     >
                       {formatJaDate(item.publishedAt)}
                     </time>
-                    {item.id === latestId ? <ArticleNewBadge /> : null}
+                    {isPublishedWithinDays(item.publishedAt, RECENT_PUBLISH_DAYS) ? (
+                      <ArticleNewBadge />
+                    ) : null}
                   </div>
                   <h3 className="line-clamp-2 min-h-[2.5rem] font-bold leading-relaxed text-[#333] text-sm sm:min-h-[3rem] sm:text-base">
                     {item.title}

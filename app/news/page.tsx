@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ArticleNewBadge from "@/components/ArticleNewBadge";
 import { getNewsList } from "@/lib/microcms";
-import { formatJaDate } from "@/lib/date";
+import { formatJaDate, isPublishedWithinDays, RECENT_PUBLISH_DAYS } from "@/lib/date";
 
 export const metadata = {
   title: "お知らせ",
@@ -10,7 +10,6 @@ export const metadata = {
 
 export default async function NewsListPage() {
   const { contents } = await getNewsList(50, 0);
-  const latestId = contents[0]?.id;
 
   return (
     <main className="min-w-0 break-words px-3 py-10 sm:px-6 sm:py-16 lg:px-12 xl:px-20">
@@ -41,7 +40,9 @@ export default async function NewsListPage() {
                     >
                       {formatJaDate(item.publishedAt)}
                     </time>
-                    {item.id === latestId ? <ArticleNewBadge /> : null}
+                    {isPublishedWithinDays(item.publishedAt, RECENT_PUBLISH_DAYS) ? (
+                      <ArticleNewBadge />
+                    ) : null}
                   </div>
                   <h2 className="font-bold text-[#333] sm:text-lg">
                     {item.title}
