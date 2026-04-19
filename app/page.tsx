@@ -4,11 +4,15 @@ import CompanySection from "@/components/CompanySection";
 import CalendarSection from "@/components/CalendarSection";
 import NewsSection from "@/components/NewsSection";
 import DayoriSection from "@/components/DayoriSection";
+import RecentPublishBanner from "@/components/RecentPublishBanner";
 import RevealOnScroll from "@/components/RevealOnScroll";
+
+export const revalidate = 300;
 
 export default function Home() {
   return (
     <>
+      <RecentPublishBanner />
       {/* メインビジュアル：30周年・経営理念（HP 会社案内.pdf 準拠） */}
       <RevealOnScroll>
         <section

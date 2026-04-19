@@ -51,6 +51,18 @@ export async function getNewsList(limit = 10, offset = 0): Promise<{
   }
 }
 
+/** 公開日が新しい順の最新1件（トップの直近公開バナー用） */
+export async function getLatestNewsPublished(): Promise<NewsItem | null> {
+  const { contents } = await getNewsList(1, 0);
+  return contents[0] ?? null;
+}
+
+/** 公開日が新しい順の最新1件（トップの直近公開バナー用） */
+export async function getLatestDayoriPublished(): Promise<DayoriItem | null> {
+  const { contents } = await getDayoriList(1, 0);
+  return contents[0] ?? null;
+}
+
 export async function getNewsDetail(contentId: string): Promise<NewsItem | null> {
   try {
     const client = getClient();
