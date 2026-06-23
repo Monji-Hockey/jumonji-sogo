@@ -12,7 +12,7 @@ export const revalidate = 300;
 export default function Home() {
   return (
     <>
-      {/* メインビジュアル：30周年・経営理念（HP 会社案内.pdf 準拠） */}
+      {/* メインビジュアル：創業31年・経営理念（HP 会社案内.pdf 準拠） */}
       <RevealOnScroll>
         <section
           className="relative px-3 py-10 sm:px-4 sm:py-16 lg:px-12 xl:px-20"
@@ -22,7 +22,7 @@ export default function Home() {
         >
           <div className="mx-auto max-w-4xl text-center">
             <p className="mb-2 text-sm font-bold tracking-wider text-[#c2185b] sm:text-base">
-              保険代理店として、お陰様で30周年をむかえました
+              保険代理店として、おかげさまで創業31年を迎えております
             </p>
             <div className="mb-6 flex w-full justify-center">
               <Image

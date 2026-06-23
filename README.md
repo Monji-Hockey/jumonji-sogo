@@ -17,7 +17,7 @@ Next.js (App Router) + TypeScript + Tailwind CSS で構築。Vercel へのデプ
 │   ├── fd-declaration/page.tsx # お客さま本位の業務運営方針（FD宣言）
 │   └── disclosure/page.tsx   # 権限明示・推奨方針
 ├── components/
-│   ├── Header.tsx            # 30周年バッジ・緊急ダイヤル
+│   ├── Header.tsx            # 創業31年バッジ・緊急ダイヤル
 │   ├── Footer.tsx            # 重要文書リンク
 │   ├── GoogleAnalytics.tsx   # GA4 トラッキング（本番・ID 設定時のみ）
 │   ├── CalendarSection.tsx   # 営業日カレンダー（API 取得・自前描画・本社/久慈タブ・今月・来月のみ）

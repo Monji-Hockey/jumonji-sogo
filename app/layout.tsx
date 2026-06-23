@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | 十文字総合開発",
   },
   description:
-    "保険を通じて、お客様と社員の幸せを守ること。お陰様で30周年。岩手県二戸市・久慈市の保険代理店です。",
+    "保険を通じて、お客様と社員の幸せを守ること。創業31年。岩手県二戸市・久慈市の保険代理店です。",
   manifest: "/site.webmanifest",
   // Google検索のファビコンは48px以上を推奨。複数サイズを明示してクローラに拾わせやすくする
   icons: {

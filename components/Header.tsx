@@ -31,7 +31,7 @@ export default function Header() {
         role="banner"
       >
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-3 py-2 sm:justify-center sm:px-6 sm:py-0 sm:[min-height:4.5rem] md:justify-center lg:px-12 xl:px-20">
-          {/* ロゴ＋30周年（中央 or 左） */}
+          {/* ロゴ＋創業31年（中央 or 左） */}
           <div className="flex min-w-0 flex-1 flex-shrink-0 items-center gap-2 sm:gap-4 md:flex-initial md:justify-center">
             <Link
               href="/"
@@ -50,7 +50,7 @@ export default function Header() {
             </Link>
             <span
               className="hidden flex-shrink-0 flex-col items-center border-l border-[#c2185b]/30 py-0.5 pl-2 sm:flex sm:items-start sm:border-l-2 sm:border-[#c2185b]/40 sm:pl-4"
-              aria-label="おかげさまで30周年"
+              aria-label="おかげさまで創業31年"
             >
               <span className="text-[10px] font-medium tracking-wider text-[#c2185b] sm:text-xs">
                 おかげさまで
@@ -59,7 +59,7 @@ export default function Header() {
                 className="leading-tight text-xs font-bold text-[#ad1457] sm:text-sm"
                 style={{ fontFamily: "serif" }}
               >
-                30周年
+                創業31年
               </span>
             </span>
           </div>
