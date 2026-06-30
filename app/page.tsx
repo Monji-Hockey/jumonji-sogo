@@ -22,7 +22,7 @@ export default function Home() {
         >
           <div className="mx-auto max-w-4xl text-center">
             <p className="mb-2 text-sm font-bold tracking-wider text-[#c2185b] sm:text-base">
-              保険代理店として、おかげさまで創業31年を迎えております
+              保険代理店として、おかげさまで創業31年を迎えました。
             </p>
             <div className="mb-6 flex w-full justify-center">
               <Image
