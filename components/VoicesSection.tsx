@@ -53,14 +53,6 @@ export default function VoicesSection({ variant = "standalone" }: VoicesSectionP
                 <p className="mt-3 text-sm leading-relaxed text-[#333]">
                   {getExcerpt(v.body, 110)}
                 </p>
-                <div className="mt-4">
-                  <Link
-                    href={`/voices/${v.id}`}
-                    className="text-sm font-bold text-[#c2185b] underline hover:no-underline"
-                  >
-                    続きを読む
-                  </Link>
-                </div>
               </article>
             ))}
           </div>

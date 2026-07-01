@@ -55,10 +55,6 @@ export function getLatestVoices(count: number): Voice[] {
   return VOICES.slice(0, Math.max(0, count));
 }
 
-export function getVoiceById(id: string): Voice | undefined {
-  return VOICES.find((v) => v.id === id);
-}
-
 export function getExcerpt(text: string, maxChars = 90): string {
   const t = text.trim();
   if (t.length <= maxChars) return t;

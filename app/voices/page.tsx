@@ -35,14 +35,6 @@ export default function VoicesPage() {
                 </p>
                 <p className="mt-1 text-lg font-bold text-[#333]">{v.subject}</p>
                 <p className="mt-3 leading-relaxed text-[#333]">{v.body}</p>
-                <div className="mt-4">
-                  <Link
-                    href={`/voices/${v.id}`}
-                    className="text-sm font-bold text-[#c2185b] underline hover:no-underline"
-                  >
-                    詳細を見る
-                  </Link>
-                </div>
               </article>
             ))}
           </div>
