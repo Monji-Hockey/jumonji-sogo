@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getExcerpt, getLatestVoices } from "@/lib/voices";
+import { formatVoicePeriod, getExcerpt, getLatestVoices } from "@/lib/voices";
 
 type VoicesSectionProps = {
   variant?: "standalone" | "embedded";
@@ -46,9 +46,12 @@ export default function VoicesSection({ variant = "standalone" }: VoicesSectionP
                 key={v.id}
                 className="rounded-xl border border-[#e8d46a]/50 bg-[#fefdf8] p-5 shadow-sm"
               >
-                <p className="text-xs font-bold tracking-wide text-[#c2185b]">
-                  {v.customerLabel}
-                </p>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-2 gap-y-1">
+                  <p className="text-xs font-bold tracking-wide text-[#c2185b]">
+                    {v.customerLabel}
+                  </p>
+                  <p className="text-xs text-[#888]">{formatVoicePeriod(v)}</p>
+                </div>
                 <p className="mt-1 text-sm font-bold text-[#333]">{v.subject}</p>
                 <p className="mt-3 text-sm leading-relaxed text-[#333]">
                   {getExcerpt(v.body, 110)}
@@ -61,4 +64,3 @@ export default function VoicesSection({ variant = "standalone" }: VoicesSectionP
     </section>
   );
 }
-
