@@ -100,16 +100,29 @@ export default function Footer() {
             <br />
             TEL: 0195-23-7141 / FAX: 0195-22-1124
           </p>
-          <div className="mt-4 inline-flex flex-col items-start gap-2 rounded-xl border border-[#f5d6a2] bg-[#fff8ed] px-3 py-2 sm:flex-row sm:items-center sm:gap-3">
-            <img
-              src="/images/hitotsuboshi/color/security_action_hitotsuboshi-small_color.png"
-              alt="SECURITY ACTION 一つ星 ロゴ"
-              className="h-10 w-auto sm:h-11"
-              loading="lazy"
-            />
-            <p className="text-xs font-medium leading-relaxed text-[#8b4a56] sm:text-sm">
-              SECURITY ACTION 一つ星を宣言しました
-            </p>
+          <div className="mt-4 flex flex-col items-start gap-3">
+            <div className="inline-flex flex-col items-start gap-2 rounded-xl border border-[#f5d6a2] bg-[#fff8ed] px-3 py-2 sm:flex-row sm:items-center sm:gap-3">
+              <img
+                src="/images/hitotsuboshi/color/security_action_hitotsuboshi-small_color.png"
+                alt="SECURITY ACTION 一つ星 ロゴ"
+                className="h-10 w-auto sm:h-11"
+                loading="lazy"
+              />
+              <p className="text-xs font-medium leading-relaxed text-[#8b4a56] sm:text-sm">
+                SECURITY ACTION 一つ星を宣言しました
+              </p>
+            </div>
+            <div className="inline-flex flex-col items-start gap-2 rounded-xl border border-[#f5d6a2] bg-[#fff8ed] px-3 py-2 sm:flex-row sm:items-center sm:gap-3">
+              <img
+                src="/images/事業継続力強化計画2026_ロゴ.jpg"
+                alt="令和8年度 事業継続力強化計画 認定 ロゴ"
+                className="h-14 w-auto sm:h-16"
+                loading="lazy"
+              />
+              <p className="text-xs font-medium leading-relaxed text-[#8b4a56] sm:text-sm">
+                令和8年度 事業継続力強化計画を認定されました
+              </p>
+            </div>
           </div>
         </div>
         <p className="mt-4 text-xs text-[#666]">
